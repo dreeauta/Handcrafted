@@ -13,9 +13,8 @@ const pgp = require('pg-promise')(
 const bcrypt = require('bcrypt');
 const uuid = (require('uuid'));
 
-
 const db = pgp({
-  database: 'ecommerce_db'
+  database: 'art_db'
 });
 
 const app = express();
@@ -26,8 +25,9 @@ app.use(cors());
 
 app.use(express.static('public'));
 
-app.get('/api/products', (req, resp, next) => {
-  db.any('select * from product')
+app.get('/api/category', (req, resp, next) => {
+  let category = req.params.category;
+  db.any('select * from product where category = $1', category)
   .then(pages => resp.json(pages))
   .catch(next);
 })
