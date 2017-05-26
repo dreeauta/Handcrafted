@@ -25,12 +25,45 @@ app.use(cors());
 
 app.use(express.static('public'));
 
-app.get('/api/category', (req, resp, next) => {
-  let category = req.params.category;
-  db.any('select * from product where category = $1', category)
+app.get('/api/products', (req, resp, next) => {
+  db.any('select * from product')
   .then(pages => resp.json(pages))
   .catch(next);
 })
+
+app.get('/api/artwork', (req, resp,next) => {
+  db.any('select * from product where product.category = "artwork"')
+  .then(pages => resp.json(pages))
+  .catch(next);
+})
+
+app.get('/api/survivalgear', (req, resp,next) => {
+  db.any('select * from product where product.category = "survival_gear"')
+  .then(pages => resp.json(pages))
+  .catch(next);
+})
+
+app.get('/api/jewelry', (req, resp,next) => {
+  db.any('select * from product where product.category = "jewelry"')
+  .then(pages => resp.json(pages))
+  .catch(next);
+})
+
+// app.get('/api/category/:id', (req, resp, next) => {
+//   let id = req.params.id;
+//   db.any('select * from product where id = $1', id)
+//   .then(page => {
+//     if(page === null) {
+//       resp.status(400);
+//       resp.json({
+//         message: 'Page no found'
+//       });
+//     } else {
+//       resp.json(page);
+//     }
+//   })
+//   .catch(next);
+// })
 
 app.get('/api/product/:id', (req, resp, next) => {
   let id = req.params.id;
@@ -47,6 +80,7 @@ app.get('/api/product/:id', (req, resp, next) => {
   })
   .catch(next);
 })
+
 
 /*
 Request body shape:
@@ -130,10 +164,7 @@ app.use (function Authenticate(req, res, next) {
   db.one('select * from login_session where token = $1', [token])
   .then(data => {
     req.user = data;
-
-
     next();
-
   })
   .catch(err =>
     res.send('Unauthorized user')

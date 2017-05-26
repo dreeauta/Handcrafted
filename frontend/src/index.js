@@ -1,13 +1,134 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-import React-redux from 'react-redux';
+import * as Redux from 'redux';
+import * as ReactRedux from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
+import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 
 
+import homeReducer from './homepage/home.reducer';
+import homeContainer from './homepage/home';
+// import categoryReducer from './category/category.reducer';
+// import categoryContainer from './category/category';
+import userSignupReducer from './userSignup/userSignup.reducer';
+import userSignupContainer from './userSignup/userSignup';
+import userLoginReducer from './userLogin/userLogin.reducer';
+import userLoginContainer from './userLogin/userLogin';
+// import cartReducer from './cart/cart.reducer';
+// import cartContainer from './cart/cart';
+import artworkContainer from './artwork/artwork';
+import artworkReducer from './artwork/artwork.reducer';
 
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+const reducer= Redux.combineReducers({
+  home: homeReducer,
+  signup: userSignupReducer,
+  login: userLoginReducer,
+  artwork: artworkReducer
+});
+
+const store = Redux.createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  Redux.applyMiddleware(ReduxThunk)
 );
+
+class AppLayout extends React.Component {
+  render() {
+
+    console.log(this.props.login)
+
+{/*
+    let menubaroptions = this.props.login.token ? (
+
+      <div className="navbar">
+
+      <IndexLink to="/" activeClassName="active">
+      Home </IndexLink>
+      <Link to="/SignOut" activeClassName="active">
+      SignOut </Link>
+
+      <Link to="/Cart" activeClassName="active">
+      Cart </Link>
+      <Link to="/Events" activeClassName="active">
+      Events </Link>
+      </div>
+ ) : (
+      <div className="navbar">
+
+      <IndexLink to="/" activeClassName="active">
+      Home </IndexLink>
+      <Link to="/Login" activeClassName= "active">
+      Login </Link>
+      <Link to="/SignUp" activeClassName="active">
+      SignUp </Link>
+      <Link to="/Cart" activeClassName="active">
+      Cart </Link>
+
+      </div>
+  )
+  */}
+
+    return (
+      <div>
+
+      <div className="navbar">
+
+      <IndexLink to="/" activeClassName="active">
+      Home </IndexLink>
+      <Link to="/Login" activeClassName= "active">
+      Login </Link>
+      <Link to="/SignUp" activeClassName="active">
+      SignUp </Link>
+      <Link to="/Cart" activeClassName="active">
+      Cart </Link>
+
+      </div>
+
+      <div className="category-nav">
+      <Link to="/" activeClassName="active">
+      Artwork
+      </Link>
+      <br/>
+      <Link to="/" activeClassName="active">
+      Tactical Gear
+      </Link>
+      <br/>
+      <Link to="/" activeClassName="active">
+      Jewelry
+      </Link>
+      <br/>
+      <Link to="/" activeClassName="active">
+      Accessories
+      </Link>
+
+      </div>
+
+      <div className="content">
+      {this.props.children}
+      </div>
+
+      </div>
+    )
+    }
+  }
+
+  ReactDOM.render(
+    <ReactRedux.Provider store={store}>
+      <Router history={hashHistory}>
+        <Route path="/" component={AppLayout}>
+        <IndexRoute component={homeContainer}/>
+        <Route path="/Login" component={userLoginContainer}/>
+        <Route path="/SignUp" component={userSignupContainer}/>
+        <Route path="/Artwork" component={artworkContainer}/>
+
+
+
+        </Route>
+      </Router>
+      </ReactRedux.Provider>,
+    document.getElementById('root')
+  );
