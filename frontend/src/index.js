@@ -21,13 +21,16 @@ import userLoginContainer from './userLogin/userLogin';
 // import cartContainer from './cart/cart';
 import artworkContainer from './artwork/artwork';
 import artworkReducer from './artwork/artwork.reducer';
+import artworkDetailContainer from './artworkDetail/artworkDetail';
+import artworkDetailReducer from './artworkDetail/artworkDetail.reducer';
 
 
 const reducer= Redux.combineReducers({
   home: homeReducer,
   signup: userSignupReducer,
   login: userLoginReducer,
-  artwork: artworkReducer
+  art: artworkReducer,
+  artDescription: artworkDetailReducer
 });
 
 const store = Redux.createStore(
@@ -39,7 +42,6 @@ const store = Redux.createStore(
 class AppLayout extends React.Component {
   render() {
 
-    console.log(this.props.login)
 
 {/*
     let menubaroptions = this.props.login.token ? (
@@ -89,20 +91,24 @@ class AppLayout extends React.Component {
       </div>
 
       <div className="category-nav">
-      <Link to="/" activeClassName="active">
+      <Link to="/Artwork" activeClassName="active">
       Artwork
       </Link>
       <br/>
-      <Link to="/" activeClassName="active">
+      <Link to="/tacticalgear" activeClassName="active">
       Tactical Gear
       </Link>
       <br/>
-      <Link to="/" activeClassName="active">
+      <Link to="/jewelry" activeClassName="active">
       Jewelry
       </Link>
       <br/>
-      <Link to="/" activeClassName="active">
+      <Link to="/accessories" activeClassName="active">
       Accessories
+      </Link>
+      <br/>
+      <Link to="/colorme" activeClassName="active">
+      Color Me
       </Link>
 
       </div>
@@ -123,8 +129,8 @@ class AppLayout extends React.Component {
         <IndexRoute component={homeContainer}/>
         <Route path="/Login" component={userLoginContainer}/>
         <Route path="/SignUp" component={userSignupContainer}/>
-        <Route path="/Artwork" component={artworkContainer}/>
-
+        <Route path="/artwork" component={artworkContainer}/>
+        <Route path="/artwork/:id" component={artworkDetailContainer}/>
 
 
         </Route>

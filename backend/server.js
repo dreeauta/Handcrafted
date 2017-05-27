@@ -32,7 +32,8 @@ app.get('/api/products', (req, resp, next) => {
 })
 
 app.get('/api/artwork', (req, resp,next) => {
-  db.any('select * from product where product.category = "artwork"')
+  // db.any('select * from artist where artist.category LIKE "%artwork%"')
+  db.any('select * from artist')
   .then(pages => resp.json(pages))
   .catch(next);
 })
@@ -44,6 +45,12 @@ app.get('/api/survivalgear', (req, resp,next) => {
 })
 
 app.get('/api/jewelry', (req, resp,next) => {
+  db.any('select * from product where product.category = "jewelry"')
+  .then(pages => resp.json(pages))
+  .catch(next);
+})
+
+app.get('/api/accessories', (req, resp,next) => {
   db.any('select * from product where product.category = "jewelry"')
   .then(pages => resp.json(pages))
   .catch(next);
@@ -65,9 +72,10 @@ app.get('/api/jewelry', (req, resp,next) => {
 //   .catch(next);
 // })
 
-app.get('/api/product/:id', (req, resp, next) => {
+app.get('/api/artwork/:id', (req, resp, next) => {
   let id = req.params.id;
-  db.one('select * from product where id = $1', id)
+  let artist_id = req.params.artist_id;
+  db.any('select * from product join artist on (product.artist_id = artist.id) where artist_id = $1', id)
   .then(page => {
     if(page === null) {
       resp.status(404);

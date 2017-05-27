@@ -43,7 +43,7 @@ class home extends React.Component {
 
       </div>
 
-      <img src="./andreeaart.jpg" alt="andreea-art"/>
+      <img src="./artwork/succulents.png" alt="andreea-art"/>
 
 
       </center>
