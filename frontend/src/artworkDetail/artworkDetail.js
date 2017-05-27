@@ -14,7 +14,8 @@ render() {
 
   if (this.props.artworkDescription.art_gallery) {
     artImages =
-    this.props.artworkDescription.art_gallery.map((input,idx) => <p> <img src={input.image_path}/> <br/> {input.name} <br/> {input.price} </p> );
+    this.props.artworkDescription.art_gallery.map((input,idx) => <p> <img src={input.image_path}/> <br/> {input.name} <br/> {input.price} <br/>
+    <button>Add to Cart </button></p> );
   }
 
 return (
@@ -32,7 +33,7 @@ return (
 
 
 const artworkDetailContainer = ReactRedux.connect(
-  state => state.state,
+  state => state,
   // reducer artworkDescription
   actions
 )(artworkDetail);

@@ -22,8 +22,10 @@ render() {
    let coverImages;
    console.log(this.props.art.featured_artist)
 
+   console.log(this.props.art.featured_artist.firstname);
+
    if (this.props.art.featured_artist) {
-     coverImages = this.props.art.featured_artist.map((input,idx) => <Link to={"/artwork/"+ input.id} key={idx} className="artCover" >  <img src={input.featured_image}/></Link> );
+     coverImages = this.props.art.featured_artist.map((input,idx) => <Link to={"/artwork/"+ input.id} key={idx} className="artCover" >  <img src={input.featured_image}/></Link>  );
    }
 
 return (
