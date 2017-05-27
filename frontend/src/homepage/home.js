@@ -29,7 +29,8 @@ class home extends React.Component {
 
 
     <center>
-    <h1> HandCrafted - ATL </h1>
+    <h1 className="homepage-title"> HandCrafted - ATL </h1>
+
 
       <br/>
       <br/>
@@ -43,7 +44,7 @@ class home extends React.Component {
 
       </div>
 
-      <img src="./artwork/succulents.png" alt="andreea-art"/>
+      <img className="succulents" src="./artwork/succulents.png" alt="andreea-art"/>
 
 
       </center>

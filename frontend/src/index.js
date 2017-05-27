@@ -17,8 +17,8 @@ import userSignupReducer from './userSignup/userSignup.reducer';
 import userSignupContainer from './userSignup/userSignup';
 import userLoginReducer from './userLogin/userLogin.reducer';
 import userLoginContainer from './userLogin/userLogin';
-// import cartReducer from './cart/cart.reducer';
-// import cartContainer from './cart/cart';
+import cartReducer from './cart/cart.reducer';
+import cartContainer from './cart/cart';
 import artworkContainer from './artwork/artwork';
 import artworkReducer from './artwork/artwork.reducer';
 import artworkDetailContainer from './artworkDetail/artworkDetail';
@@ -30,7 +30,8 @@ const reducer= Redux.combineReducers({
   signup: userSignupReducer,
   login: userLoginReducer,
   art: artworkReducer,
-  artDescription: artworkDetailReducer
+  artDescription: artworkDetailReducer,
+  cart: cartReducer
 });
 
 const store = Redux.createStore(
@@ -129,8 +130,10 @@ class AppLayout extends React.Component {
         <IndexRoute component={homeContainer}/>
         <Route path="/Login" component={userLoginContainer}/>
         <Route path="/SignUp" component={userSignupContainer}/>
+        <Route path="/Cart" component={cartContainer}/>
         <Route path="/artwork" component={artworkContainer}/>
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
+
 
 
         </Route>

@@ -1,9 +1,17 @@
 
 
 .category-nav {
-  
+
 }
 
 .navbar {
   float: right;
+}
+
+.homepage-title {
+}
+
+.succulents {
+  width: 100vw;
+  height: 50vh;
 }
