@@ -1,4 +1,3 @@
-import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -23,6 +22,19 @@ import artworkContainer from './artwork/artwork';
 import artworkReducer from './artwork/artwork.reducer';
 import artworkDetailContainer from './artworkDetail/artworkDetail';
 import artworkDetailReducer from './artworkDetail/artworkDetail.reducer';
+import checkoutContainer from './checkout/checkout';
+import checkoutReducer from './checkout/checkout.reducer';
+import eventsContainer from './events/events';
+import eventsReducer from './events/events.reducer';
+import aboutContainer from './about/about';
+
+
+//burger menu imports
+import {reducer as burgerMenu} from 'redux-burger-menu';
+import { stack as Menu } from 'react-burger-menu';
+
+
+import './index.css';
 
 
 const reducer= Redux.combineReducers({
@@ -31,7 +43,10 @@ const reducer= Redux.combineReducers({
   login: userLoginReducer,
   art: artworkReducer,
   artDescription: artworkDetailReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  checkout: checkoutReducer,
+  events: eventsReducer,
+  burgerMenu
 });
 
 const store = Redux.createStore(
@@ -91,13 +106,11 @@ class AppLayout extends React.Component {
 
       </div>
 
-      <div className="category-nav">
+      <Menu pageWrapId={ "page-wrap" } noOverlay   >
+      <main id="page-wrap">
+      <div className= "category-nav">
       <Link to="/Artwork" activeClassName="active">
       Artwork
-      </Link>
-      <br/>
-      <Link to="/tacticalgear" activeClassName="active">
-      Tactical Gear
       </Link>
       <br/>
       <Link to="/jewelry" activeClassName="active">
@@ -108,11 +121,26 @@ class AppLayout extends React.Component {
       Accessories
       </Link>
       <br/>
+      <Link to="/tacticalgear" activeClassName="active">
+      Tactical Gear
+      </Link>
+      <br/>
+      <Link to="/events" activeClassName="active">
+      Events
+      </Link>
+      <br/>
       <Link to="/colorme" activeClassName="active">
       Color Me
       </Link>
+      <br/>
+      <Link to="/about" activeClassName="active">
+      About
+      </Link>
 
       </div>
+
+      </main>
+      </Menu>
 
       <div className="content">
       {this.props.children}
@@ -131,8 +159,11 @@ class AppLayout extends React.Component {
         <Route path="/Login" component={userLoginContainer}/>
         <Route path="/SignUp" component={userSignupContainer}/>
         <Route path="/Cart" component={cartContainer}/>
+        <Route path="/Checkout" component={checkoutContainer}/>
         <Route path="/artwork" component={artworkContainer}/>
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
+        <Route path="/events" component={eventsContainer}/>
+          <Route path="/about" component={aboutContainer}/>
 
 
 

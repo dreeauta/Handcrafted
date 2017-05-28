@@ -1,5 +1,124 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/*body {
+  overflow-y: hidden;
+}*/
+
+.category-nav {
+
+}
+.category-nav a{
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  margin-top: 2vh;
+
+}
+
+.category-nav a:hover {
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+.navbar {
+  float: right;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.navbar a{
+  text-decoration: none;
+  margin-right: 2vw;
+  color: black;
+
+}
+
+.navbar a:hover {
+  color: green;
+  font-weight: 600;
+}
+
+.homepage-title {
+}
+
+.home-slogan {
+  position: relative;
+  bottom: 6vh;
+  right: 4vw;
+  font-family: 'Poppins', sans-serif;
+
+}
+.pen-gif {
+  width: 80vw;
+  height:70vh;
+  position: relative;
+  bottom: 5vh;
+}
+
+
+/*burger menu styling*/
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  overflow-y: hidden;
+  text-align: center;
+  height: 80%;
+  overflow: hidden;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  overflow-y: hidden;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+/*artwork page styling*/
+.artCover img{
+  width: 25vw;
+  margin-right: 5vw;
+filter: grayscale(100%);
+}
+
+.artCover img:hover{
+  width: 25vw;
+  margin-right: 5vw;
+  filter: grayscale(30%);
 }

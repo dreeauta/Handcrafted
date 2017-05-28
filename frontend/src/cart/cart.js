@@ -1,5 +1,5 @@
 import React from 'react';
-import '.././App.css';
+import '.././index.css';
 import * as ReactRedux from 'react-redux';
 import * as actions from './cart.actions';
 import { Link } from 'react-router';

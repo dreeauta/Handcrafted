@@ -38,6 +38,24 @@ app.get('/api/artwork', (req, resp,next) => {
   .catch(next);
 })
 
+app.get('/api/artwork/:id', (req, resp, next) => {
+  let id = req.params.id;
+  let artist_id = req.params.artist_id;
+  db.any('select * from product join artist on (product.artist_id = artist.id) where artist_id = $1', id)
+  .then(page => {
+    if(page === null) {
+      resp.status(404);
+      resp.json({
+        message: 'Page no found'
+      });
+    } else {
+      resp.json(page);
+    }
+  })
+  .catch(next);
+})
+
+
 app.get('/api/survivalgear', (req, resp,next) => {
   db.any('select * from product where product.category = "survival_gear"')
   .then(pages => resp.json(pages))
@@ -72,23 +90,11 @@ app.get('/api/accessories', (req, resp,next) => {
 //   .catch(next);
 // })
 
-app.get('/api/artwork/:id', (req, resp, next) => {
-  let id = req.params.id;
-  let artist_id = req.params.artist_id;
-  db.any('select * from product join artist on (product.artist_id = artist.id) where artist_id = $1', id)
-  .then(page => {
-    if(page === null) {
-      resp.status(404);
-      resp.json({
-        message: 'Page no found'
-      });
-    } else {
-      resp.json(page);
-    }
-  })
+app.get('/api/events', (req, resp, next) => {
+  db.any('select * from events ORDER BY date ASC')
+  .then(pages => resp.json(pages))
   .catch(next);
 })
-
 
 /*
 Request body shape:
@@ -199,6 +205,14 @@ app.post('/api/shopping_cart', (req, res, next) => {
 app.get('/api/shopping_cart', (req, res, next) => {
   let data = req.body;
   db.any('select * from product_in_shopping_cart as pisc join product as p on (pisc.product_id = p.id) where customer_id = $1 ', [req.user.customer_id])
+  .then(data => res.json(data))
+  .catch(next);
+});
+
+
+app.post('/api/checkout', (req, res, next) => {
+  let data = req.body;
+  db.one(`insert into purchase values (default, $1, $2, $3, $4, $5, $6) returning customer_id, total_price, address, address2, city, zipcode`, [req.user.customer_id, data.total_price, data.address, data.address2, data.city, data.zipcode])
   .then(data => res.json(data))
   .catch(next);
 });

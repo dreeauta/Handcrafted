@@ -1,5 +1,5 @@
 import React from 'react';
-import '.././App.css';
+import '.././index.css';
 import * as ReactRedux from 'react-redux';
 import * as actions from './artwork.actions';
 import { Link } from 'react-router';
@@ -34,7 +34,7 @@ return (
   <center>
   <p>  { loginName }  </p>
 
-
+  <img src="./artwork/artwork-title.png"/>
   <p>
   { coverImages }
   </p>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '.././App.css';
+import '.././index.css';
 import * as ReactRedux from 'react-redux';
 import * as actions from './home.actions';
 import { Link } from 'react-router';
@@ -29,22 +29,13 @@ class home extends React.Component {
 
 
     <center>
-    <h1 className="homepage-title"> HandCrafted - ATL </h1>
+
+    <img className="handcrafted-title" src="./home/handcrafted-title.png"/>
+
+      <p className="home-slogan"> Made with <img src="./home/heart.png"/> from the artists of ATL.  </p>
 
 
-      <br/>
-      <br/>
-      <div className="featured-artist">
-      Featured Artist of the Month:
-      <br/>
-      <br/>
-      Artist
-
-      <br/>
-
-      </div>
-
-      <img className="succulents" src="./artwork/succulents.png" alt="andreea-art"/>
+      <img className="pen-gif" src="./home/pen.gif" alt="pen-gif"/>
 
 
       </center>
