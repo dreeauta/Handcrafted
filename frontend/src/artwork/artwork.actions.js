@@ -23,7 +23,7 @@ export function pageError(resp) {
 }
 
 
-export function fetchArtCover(title){
+export function fetchArtCover(/*title*/){
   let asyncAction = function(dispatch) {
     $.ajax({
       method:'GET',

@@ -11,6 +11,11 @@ export default function reducer(state = INITIAL_STATE, action) {
       shoppingcartItems: action.payload
     })
   }
+  else if (action.type === 'addToCart'){
+    return Object.assign({}, state, {
+      shoppingcartItems: action.payload
+    })
+  }
   else if (action.type === 'deleteItem') {
     return Object.assign({}, state, {
       shoppingcartItems: action.payload

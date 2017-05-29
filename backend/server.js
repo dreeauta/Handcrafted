@@ -40,8 +40,8 @@ app.get('/api/artwork', (req, resp,next) => {
 
 app.get('/api/artwork/:id', (req, resp, next) => {
   let id = req.params.id;
-  let artist_id = req.params.artist_id;
-  db.any('select * from product join artist on (product.artist_id = artist.id) where artist_id = $1', id)
+  // let artist_id = req.params.artist_id;
+  db.any('select * from product inner join artist on (product.artist_id = artist.id) where product.artist_id = $1', [id])
   .then(page => {
     if(page === null) {
       resp.status(404);
@@ -107,20 +107,22 @@ Request body shape:
 }
 */
 
+
 app.post('/api/user/signup', (req, resp, next) => {
   let data = req.body;
   bcrypt.hash(data.password, 10)
     .then((encryptedPassword) =>
       db.one(`
         insert into customer
-        values (default, $1, $2, $3, $4, $5)
-        returning username, email, first_name, last_name
+        values (default, $1, $2, $3, $4, $5, $6)
+        returning username, email, first_name, last_name, user_image
         `,
         [data.username,
           data.email,
           encryptedPassword,
           data.first_name,
-          data.last_name]
+          data.last_name,
+          data.user_image]
       )
     )
     .then(data => resp.json(data))
@@ -200,6 +202,10 @@ app.post('/api/shopping_cart', (req, res, next) => {
 .then(data => res.json(data))
 .catch(next);
 });
+
+app.delete('/api/shopping_cart', (req, res, next => {
+  let data = req.body;
+})
 
 
 app.get('/api/shopping_cart', (req, res, next) => {

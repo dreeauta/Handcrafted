@@ -3,7 +3,8 @@ const INITIAL_STATE = {
   password: "",
   firstname: "",
   lastname: "",
-  email: ""
+  email: "",
+  user_image: ""
 };
 
 

@@ -42,7 +42,7 @@ const reducer= Redux.combineReducers({
   signup: userSignupReducer,
   login: userLoginReducer,
   art: artworkReducer,
-  artDescription: artworkDetailReducer,
+  artworkDescription: artworkDetailReducer,
   cart: cartReducer,
   checkout: checkoutReducer,
   events: eventsReducer,

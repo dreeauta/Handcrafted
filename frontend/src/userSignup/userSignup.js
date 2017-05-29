@@ -2,6 +2,8 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './userSignup.actions';
 import { Link } from 'react-router';
+import { FileUpload } from 'redux-file-upload'
+
 
 
 class userSignup extends React.Component {
@@ -14,23 +16,25 @@ class userSignup extends React.Component {
       <br/>
       <br/>
         <label> First Name: </label>
-        <input type="text" onChange={event => this.props.onChange(event.target.value, 'firstname')} />
+        <input type="text" onChange={event => this.props.signup.onChange(event.target.value, 'firstname')} />
       <br/>
         <label> Last Name: </label>
-        <input type="text" onChange={event => this.props.onChange(event.target.value, 'lastname')}/>
+        <input type="text" onChange={event => this.props.signup.onChange(event.target.value, 'lastname')}/>
       <br/>
         <label> Email: </label>
-        <input type="email" onChange={event => this.props.onChange(event.target.value, 'email')}/>
+        <input type="email" onChange={event => this.props.signup.onChange(event.target.value, 'email')}/>
       <br/>
         <label> Username: </label>
-        <input type="text" onChange={event => this.props.onChange(event.target.value, 'username')}/>
+        <input type="text" onChange={event => this.props.signup.onChange(event.target.value, 'username')}/>
       <br/>
         <label> Password: </label>
-        <input type="password" onChange={event => this.props.onChange(event.target.value, 'password')} />
+        <input type="password" onChange={event => this.props.signup.onChange(event.target.value, 'password')} />
+      <br/>
+
       <br/>
 
       <Link to={"/login"}>
-      <button onClick={() => this.props.submit(this.props.username, this.props.firstname, this.props.lastname, this.props.email, this.props.password)}> SignUp </button> </Link>
+      <button onClick={() => this.props.signup.submit(this.props.signup.username, this.props.signup.firstname, this.props.signup.lastname, this.props.signup.email, this.props.signup.password)}> SignUp </button> </Link>
       </center>
 
       </div>
@@ -41,7 +45,9 @@ class userSignup extends React.Component {
 
 
 const userSignupContainer = ReactRedux.connect(
-  state => state.signup,
+  state => state,
+  //  reducer signup
+
   actions
 )(userSignup);
 

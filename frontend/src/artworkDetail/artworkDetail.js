@@ -4,7 +4,7 @@ import * as actions from './artworkDetail.actions';
 
 class artworkDetail extends React.Component {
   componentDidMount() {
-    this.props.fetchArtworkDetail(this.props.params.id)
+    this.props.fetchArtworkDetail(this.props.router.params.id);
   }
 
 
@@ -14,14 +14,16 @@ render() {
 
   if (this.props.artworkDescription.art_gallery) {
     artImages =
-    this.props.artworkDescription.art_gallery.map((input,idx) => <p> <img src={input.image_path}/> <br/> {input.name} <br/> {input.price} <br/>
-    <button>Add to Cart </button></p> );
+    this.props.artworkDescription.art_gallery.map((input,idx) => <p className="artwork-pieces"> <img src={input.image_path}/>   ${input.price}  {input.name}
+    <button onClick={event=> this.props.cart.addToCart(this.props.art_gallery.idx)}>Add to Cart </button></p> );
   }
 
 return (
   <div>
   <center>
-
+  <p>
+ { this.props.artworkDescription.art_gallery.firstname }
+ </p>
   { artImages }
 
   </center>

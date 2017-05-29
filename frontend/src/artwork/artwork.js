@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 class artwork extends React.Component {
 
   componentDidMount() {
-    this.props.fetchArtCover(this.props.params.data)
+    this.props.fetchArtCover(/*this.props.params.data*/)
   }
 
 render() {
@@ -25,7 +25,8 @@ render() {
    console.log(this.props.art.featured_artist.firstname);
 
    if (this.props.art.featured_artist) {
-     coverImages = this.props.art.featured_artist.map((input,idx) => <Link to={"/artwork/"+ input.id} key={idx} className="artCover" >  <img src={input.featured_image}/></Link>  );
+     coverImages = this.props.art.featured_artist.map((input,idx) => <p key={idx}> <Link to={"/artwork/"+ input.id}  className="artCover" >  <img src={input.featured_image}/></Link> <br/>
+     {input.firstname} {input.lastname} </p>  );
    }
 
 return (
