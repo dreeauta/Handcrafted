@@ -10,6 +10,11 @@ export function loginChange(data, propName){
 }
 
 
+export function logout() {
+  return {
+    type: 'logout'
+  }
+}
 
 
 export function submitLogin(username, password){

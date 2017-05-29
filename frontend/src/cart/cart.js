@@ -32,7 +32,7 @@ class shoppingCart extends React.Component {
 
     return(
       <div>
-      <h3> Shopping Cart </h3>
+      <img src="./cart/cart-title.png"/>
       <p>
 
 

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  shoppingcartItems: [],
+  cart_items: [],
   token: ""
 
 }
@@ -8,17 +8,18 @@ const INITIAL_STATE = {
 export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'displayCart'){
     return Object.assign({}, state, {
-      shoppingcartItems: action.payload
+      cart_items: action.payload
     })
   }
   else if (action.type === 'addToCart'){
     return Object.assign({}, state, {
-      shoppingcartItems: action.payload
+      cart_items: action.payload.cart_items,
+      token: action.payload.auth_token
     })
   }
   else if (action.type === 'deleteItem') {
     return Object.assign({}, state, {
-      shoppingcartItems: action.payload
+      cart_items: action.payload
     })
 }
   return state;

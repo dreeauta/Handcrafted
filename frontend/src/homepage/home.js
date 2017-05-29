@@ -32,7 +32,7 @@ class home extends React.Component {
 
     <img className="handcrafted-title" src="./home/handcrafted-title.png"/>
 
-      <p className="home-slogan"> Made with <img src="./home/heart.png"/> from the artists of ATL.  </p>
+      <p className="home-slogan"> One of a kind pieces made with <img src="./home/heart.png"/> from the artists of ATL.  </p>
 
 
       <img className="pen-gif" src="./home/pen.gif" alt="pen-gif"/>

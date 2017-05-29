@@ -9,33 +9,48 @@ class checkoutCart extends React.Component {
   render() {
     return (
 <div>
-  <center>
+<center>
+
+<img src="./checkout/checkout-title.png"/>
+  </center>
       <label> Name: </label>
-      <input type="text" onChangePurchase={event => this.props.checkout.onChangePurchase(event.target.value, 'firstname')}/>
+      <br/>
+
+      <input type="text" onChange={event => this.props.onChangePurchase(event.target.value, 'full_name')}/>
       <br/>
       <label> Address: </label>
-      <input type="text" onChangePurchase={event =>
-      this.props.checkout.onChangePurchase(event.target.value,'address')}/>
       <br/>
+
+      <input type="text" onChange={event =>
+      this.props.onChangePurchase(event.target.value,'address')}/>
+      <br/>
+
       <label> Address2: </label>
-      <input type="text" onChangePurchase={event =>
-      this.props.checkout.onChangePurchase(event.target.value,'address2')}/>
       <br/>
+
+      <input type="text" onChange={event =>
+      this.props.onChangePurchase(event.target.value,'address2')}/>
+      <br/>
+
       <label> City: </label>
-      <input type="text" onChangePurchase={event =>
-      this.props.checkout.onChangePurchase(event.target.value,'city')}/>
       <br/>
+
+      <input type="text" onChange={event =>
+      this.props.onChangePurchase(event.target.value,'city')}/>
+      <br/>
+
       <label> Zip code: </label>
-      <input type="text" onChangePurchase={event =>
-      this.props.checkout.onChangePurchase(event.target.value,'zip')}/>
       <br/>
+      <input type="text" onChange={event =>
+      this.props.onChangePurchase(event.target.value,'zip')}/>
+      <br/>
+
       <Link to={"/confirmation"}>
-      <button onClick={() => this.props.checkout.submitPurchase(this.props.checkout.name, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip)}>
-      Confirm Purchase
+      <button onClick={() => this.props.submitPurchase(this.props.checkout.name, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip)}>
+      Confirm
       </button>
       </Link>
 
-      </center>
 
       </div>
     )

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  name: "",
+  full_name: "",
   address: "",
   address2:"",
   city: "",
@@ -13,7 +13,7 @@ export default function reducer( state = INITIAL_STATE, action) {
       [action.name]: action.payload
     })
   }
-  
+
     else if (action.type === 'submitPurchase'){
   }
   return state;

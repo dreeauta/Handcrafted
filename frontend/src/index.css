@@ -2,6 +2,8 @@
   overflow-y: hidden;
 }*/
 
+
+
 .category-nav {
 
 }
@@ -36,13 +38,11 @@
   font-weight: 600;
 }
 
-.homepage-title {
-}
 
 .home-slogan {
   position: relative;
   bottom: 6vh;
-  right: 4vw;
+  right: 11vw;
   font-family: 'Poppins', sans-serif;
 
 }
@@ -109,16 +109,139 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
+.title {
+  position: relative;
+  left: 20vw;
+}
 
 /*artwork page styling*/
-.artCover img{
-  width: 25vw;
-  margin-right: 5vw;
-filter: grayscale(100%);
+.art-background {
 }
+
+.artCover img{
+  display: inline-block;
+  width: 25vw;
+  filter: grayscale(100%);
+  margin-right: 5vw;
+  margin-top: 7vh;
+}
+
+
 
 .artCover img:hover{
   width: 25vw;
-  margin-right: 5vw;
   filter: grayscale(30%);
+}
+
+.artCover {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  position: relative;
+  left: 7vw;
+
+}
+
+/*login and signup page*/
+
+.login {
+
+}
+
+.tree-background {
+  position: relative;
+  left: 53vw;
+  bottom: 28vh;
+  z-index: 0;
+
+}
+
+.tree-background-signup {
+  position: relative;
+  left: 53vw;
+  bottom: 65vh;
+  z-index: 0;
+
+}
+
+/*form styling*/
+
+input:focus {
+    border: 3px solid #555;
+}
+
+input{
+  position: relative;
+  left: 20vw;
+  width: 30vw;
+  padding: 8px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 1.0em;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+label{
+  position: relative;
+  left: 20vw;
+  font-size: 1.0em;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+button {
+  position: relative;
+
+  left: 30vw;
+
+  width: 10vw;
+  height: 5vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0em;
+
+}
+
+/*about section*/
+.tree-background-about {
+  position: relative;
+  left: 53vw;
+  bottom: 3vh;
+  z-index: 0;
+
+}
+
+/*event section*/
+
+.event-name {
+  text-align: center;
+  margin-top: 13vh;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.event-image {
+  display: inline-block;
+  position: relative;
+  width: 40vw
+}
+
+.event-description {
+  display: inline-block;
+  width: 40vw;
+  margin-top: 3vh;
+  /*left: 15vw;*/
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.event-date {
+  margin-top: 2vh;
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+.event-link {
+  font-family: 'Poppins', sans-serif;
+
 }

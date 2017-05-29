@@ -25,6 +25,13 @@ export default function reducer(state = INITIAL_STATE, action) {
       token: action.payload.auth_token
     })
   }
+  else if (action.type === 'logout') {
+    return Object.assign({}, state, {
+      username: "",
+      password: "",
+      token: ""
+    })
+  }
 
   return state;
 }

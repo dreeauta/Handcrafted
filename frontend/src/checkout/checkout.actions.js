@@ -22,7 +22,7 @@ export function submitPurchase(name, address, address2, city, zip){
       }),
       contentType: 'application/json'
     })
-    .then(data => dispatch({ type: 'submit', payload: data}))
+    .then(data => dispatch({ type: 'submitPurchase', payload: data}))
   }
   return asyncAction
 }

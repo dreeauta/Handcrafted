@@ -11,12 +11,16 @@ export default class about extends React.Component {
     return (
       <div>
 
-      About
+      <img src="./about/about-title.png"/>
+
 
       <br/>
 <p>
       Bringing together the talent of Atlanta on one page. Shop local.
       </p>
+      <br/>
+      <img className="tree-background-about" src="./tree-background.jpg"/>
+
 
       </div>
 

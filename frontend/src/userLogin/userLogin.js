@@ -21,21 +21,31 @@ render() {
 
 
   return (
-    <div>
+    <div className="background-div">
     <center>
-  <h5>  Login </h5>
-    <label> username: </label>
+      <img src="./login/login-title.png"/>
+    </center>
+
+    <br/>
+
+    <label> Username: </label>
+    <br/>
     <input type="text" onChange={event => this.props.loginChange(event.target.value, 'username')}/>
 
   <br/>
-    <label> password: </label>
+    <label> Password: </label>
+    <br/>
+
     <input type="password" onChange={event => this.props.loginChange(event.target.value, 'password')}/>
   <br/>
   <br/>
 <Link to={"/"}>   <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Login </button> </Link>
+<br/>
 
-  <Link to={"/SignUp"}>  <button> SignUp </button> </Link>
-  </center>
+{/*  <Link to={"/SignUp"}>  <button> SignUp </button> </Link> */}
+
+<img className="tree-background" src="./tree-background.jpg"/>
+
     </div>
   );
 }

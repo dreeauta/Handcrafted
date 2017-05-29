@@ -203,8 +203,13 @@ app.post('/api/shopping_cart', (req, res, next) => {
 .catch(next);
 });
 
-app.delete('/api/shopping_cart', (req, res, next => {
+
+app.delete('/api/delete_item_from_cart', (req, res, next) => {
   let data = req.body;
+  let id = req.params.id;
+  db.result('delete from product_in_shopping_cart where id = $1', [data.product_id])
+  .then(data => res.json(data))
+  .catch(next);
 })
 
 
