@@ -1,20 +1,28 @@
-import * as ReactRedux from 'react-redux';import React from 'react';
-import * as actions from './artworkItem.actions';
+import $ from 'jquery';
 
-
-class artworkItem extends React.Component {
-
-  render() {
-    return(
-
-    );
+export function displayartworkItem(data) {
+  return {
+    type: 'displayartworkItem',
+    payload: data
   }
 }
 
-const artworkItem = ReactRedux.connect(
-  state => state,
-  // reducer artworkItem
-  actions
-)(artworkDetail);
+export function pageError(resp){
+  let error = (resp && resp.responseJSON && resp.responseJSON.message) || 'Help!';
+  return {
+    type: 'page_error',
+    error: error
+  };
+}
 
-export default artworkItemContainer;
+export function fetchartworkItem(id) {
+  let asyncAction = function(dispatch) {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:4000/api/artworkItem/' + id
+    })
+    .then(data => dispatch(displayartworkItem(data)))
+    .catch(resp => dispatch(pageError(resp)))
+  }
+  return asyncAction;
+}

@@ -22,6 +22,9 @@ import artworkContainer from './artwork/artwork';
 import artworkReducer from './artwork/artwork.reducer';
 import artworkDetailContainer from './artworkDetail/artworkDetail';
 import artworkDetailReducer from './artworkDetail/artworkDetail.reducer';
+import artworkItemContainer from './artworkItem/artworkItem';
+import artworkItemReducer from './artworkItem/artworkItem.reducer';
+
 import checkoutContainer from './checkout/checkout';
 import checkoutReducer from './checkout/checkout.reducer';
 import eventsContainer from './events/events';
@@ -45,6 +48,7 @@ const reducer= Redux.combineReducers({
   login: userLoginReducer,
   art: artworkReducer,
   artworkDescription: artworkDetailReducer,
+  artworkItem: artworkItemReducer,
   cart: cartReducer,
   checkout: checkoutReducer,
   events: eventsReducer,
@@ -169,10 +173,10 @@ class AppLayout extends React.Component {
         <Route path="/Checkout" component={checkoutContainer}/>
         <Route path="/artwork" component={artworkContainer}/>
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
+        <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/events" component={eventsContainer}/>
         <Route path="/addevents" component={addEventsContainer}/>
-          <Route path="/about" component={aboutContainer}/>
-
+        <Route path="/about" component={aboutContainer}/>
 
 
         </Route>

@@ -39,8 +39,8 @@ app.get('/api/artwork', (req, resp,next) => {
 
 app.get('/api/artwork/:id', (req, resp, next) => {
   let id = req.params.id;
-  // let artist_id = req.params.artist_id;
-  db.any('select * from product inner join artist on (product.artist_id = artist.id) where product.artist_id = $1', [id])
+
+  db.any('select p.*, a.name as artist_name, a.bio as bio, a.artist_image as artist_image, a.email as email from product as p inner join artist as a on (p.artist_id = a.id) where p.artist_id = $1', [id])
   .then(page => {
     if(page === null) {
       resp.status(404);
@@ -53,6 +53,26 @@ app.get('/api/artwork/:id', (req, resp, next) => {
   })
   .catch(next);
 })
+
+
+
+app.get('/api/artworkItem/:id', (req, resp, next) => {
+  let id = req.params.id;
+
+  db.any('select * from product where id = $1', [id])
+  .then(page => {
+    if(page === null) {
+      resp.status(404);
+      resp.json({
+        message: 'Page no found'
+      });
+    } else {
+      resp.json(page);
+    }
+  })
+  .catch(next);
+})
+
 
 
 app.get('/api/survivalgear', (req, resp,next) => {

@@ -3,8 +3,13 @@ import * as ReactRedux from 'react-redux';
 import * as actions from './userSignup.actions';
 import { Link } from 'react-router';
 import Dropzone from 'react-dropzone';
-import sha1 from 'sha1';
-import superagent from 'superagent';
+import { cloudinaryConfig, CloudinaryImage, CloudinaryVideo } from 'react-cloudinary';
+
+// import sha1 from 'sha1';
+// import superagent from 'superagent';
+//
+
+
 
 class userSignup extends React.Component {
 
@@ -81,7 +86,7 @@ class userSignup extends React.Component {
       <br/>
 
 
-      <Dropzone accept="image/png"
+      <Dropzone accept="image/png" multiple={false}
         onDrop={this.uploadFile.bind(this)} >
         {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
       if (isDragActive) {
