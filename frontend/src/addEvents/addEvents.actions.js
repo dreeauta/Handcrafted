@@ -1,4 +1,6 @@
 import $ from 'jquery';
+let cloudinary = window.cloudinary
+
 
 export function onChangeEvents(data, propName) {
   return{
@@ -27,4 +29,13 @@ export function submitEvents(name, description, location, date, time, image, lin
     .then(data => dispatch({ type: 'submitEvents', payload: data}))
   }
   return asyncAction
+}
+
+
+export function uploadEventImage() {
+  let asyncAction = function(dispatch) {
+    cloudinary.openUploadWidget({ cloud_name: 'dsyp1npet', upload_preset: 'sajrpxda'},
+      function(error, result) { console.log(error, result) });
+  }
+  return asyncAction;
 }

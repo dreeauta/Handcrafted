@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+
 export function onChange(data, propName) {
   return{
     type: 'onChange',

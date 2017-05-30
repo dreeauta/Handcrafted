@@ -11,18 +11,19 @@ class artworkItem extends React.Component {
 render() {
  let displayItem;
 
- if (this.props.artworkItem.artworkItem ){
-   let displayItem = <p> this.props.artworkItem.artworkItem.name </p>
+console.log(this.props)
+ if (this.props.artworkItem.artworkItem  ){
+   displayItem = this.props.artworkItem.artworkItem.name
  }
  else {
-   let displayItem = <p> item not available </p>
+  displayItem = <p> item not available </p>
  }
 
 return (
   <div>
 
    {displayItem}
-   <button> Add to Cart </button>
+   <button onClick={event => this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}> Add to Cart </button>
 
    </div>
  );

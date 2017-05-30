@@ -13,43 +13,6 @@ import { cloudinaryConfig, CloudinaryImage, CloudinaryVideo } from 'react-cloudi
 
 class userSignup extends React.Component {
 
-  uploadFile(files){
-    // console.log('uploadFile: ')
-    // const image = files[0]
-    // const cloudName = 'dsyp1npet'
-    // const url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/upload'
-    //
-    // const timestamp = Date.now()/1000;
-    // const uploadPreset = 'sajrpxda';
-    //
-    // const paramsStr = 'timestamp=' +timestamp+ '&upload_present=' + uploadPreset+ '3JyJTBm0s1fK1MH2io9MkevdubU';
-    //
-    // const signature = sha1(paramsStr)
-    // const params = {
-    //   'api_key': '932191477645934',
-    //   'timestamp': timestamp,
-    //   'upload_preset': uploadPreset,
-    //   'signature': signature
-    // }
-    //
-    // let uploadRequest = superagent.post(url)
-    // uploadRequest.attach('file', image)
-    //
-    // Object.keys(params).forEach((key) => {
-    //   uploadRequest.field(key, params[key])
-    // })
-    //
-    // uploadRequest.end((err, resp) => {
-    //   if (err) {
-    //     alert(err)
-    //     return
-    //   }
-    //   console.log('upload complete:' +JSON.stringify(resp.body))
-    //
-    // })
-
-
-  }
 
   render(){
 
@@ -86,20 +49,6 @@ class userSignup extends React.Component {
       <br/>
 
 
-      <Dropzone accept="image/png" multiple={false}
-        onDrop={this.uploadFile.bind(this)} >
-        {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-      if (isDragActive) {
-        return "This file is authorized";
-      }
-      if (isDragReject) {
-        return "This file is not authorized";
-      }
-      return acceptedFiles.length || rejectedFiles.length
-        ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-        : "Try dropping some files.";
-    }}
-        </Dropzone>
 
       <br/>
 

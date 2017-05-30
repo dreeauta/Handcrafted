@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+
 export function displayEvents(data){
   return {
     type: 'displayEvents',

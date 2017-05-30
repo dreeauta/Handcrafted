@@ -7,6 +7,9 @@ import ReduxThunk from 'redux-thunk';
 
 import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 
+import {persistStore, autoRehydrate} from 'redux-persist';
+import CookieStorage from 'redux-persist-cookie-storage';
+
 
 import homeReducer from './homepage/home.reducer';
 import homeContainer from './homepage/home';
@@ -59,8 +62,12 @@ const reducer= Redux.combineReducers({
 const store = Redux.createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  Redux.applyMiddleware(ReduxThunk)
+  compose(Redux.applyMiddleware(ReduxThunk), autoRehydrate())
 );
+
+
+persistStore(store, { storage: new CookieStorage() })
+
 
 class AppLayout extends React.Component {
   render() {

@@ -9,6 +9,8 @@ class addEvents extends React.Component {
 
 
 render() {
+
+
   return (
     <div>
 
@@ -43,8 +45,9 @@ render() {
     <br/>
 
     <label> Image: </label>
-    <input type="text" onChange={event =>
-    this.props.onChangeEvents(event.target.value,'image')}/>
+    <input type="text" onClick={event =>
+    this.props.uploadEventImage(event.target.value,'image')}/>
+
 
     <br/>
 
@@ -54,13 +57,17 @@ render() {
 
     <br/>
 
+
+    <br/>
+    <br/>
+    <br/>
+
     <button className ="signup-btn" onClick={() =>
     this.props.submitEvents(
       this.props.eventsadd.name,
       this.props.eventsadd.description,
       this.props.eventsadd.location,
-      this.props.eventsadd.date, this.props.eventsadd.time, this.props.eventsadd.image, this.props.eventsadd.link)}> Add Event </button>
-
+      this.props.eventsadd.date, this.props.eventsadd.time, this.props.eventsadd.link, this.props.eventsadd.image)}> Add Event </button>
 
 
     </div>

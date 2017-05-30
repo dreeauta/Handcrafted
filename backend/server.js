@@ -59,7 +59,7 @@ app.get('/api/artwork/:id', (req, resp, next) => {
 app.get('/api/artworkItem/:id', (req, resp, next) => {
   let id = req.params.id;
 
-  db.any('select * from product where id = $1', [id])
+  db.oneOrNone('select * from product where id = $1', [id])
   .then(page => {
     if(page === null) {
       resp.status(404);
