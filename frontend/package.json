@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cloudinary-react": "^1.0.4",
     "jquery": "^3.2.1",
     "literallycanvas": "^0.4.13",
     "moment": "^2.18.1",
@@ -19,7 +20,10 @@
     "redux-burger-menu": "^0.2.0",
     "redux-canvas": "^1.0.3",
     "redux-file-upload": "0.0.18",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "sha1": "^1.1.1",
+    "stripe": "^4.22.0",
+    "superagent": "^3.5.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

@@ -16,7 +16,6 @@ render() {
   if (this.props.artworkDescription.art_gallery) {
     artImages =
     this.props.artworkDescription.art_gallery.map((input,idx) => <p key = {idx} className="artwork-pieces"> <img src={input.image_path}/>   ${input.price}  {input.name}
-
      </p> );
   }
 

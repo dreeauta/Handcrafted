@@ -150,7 +150,7 @@
 .tree-background {
   position: relative;
   left: 53vw;
-  bottom: 28vh;
+  bottom: 35vh;
   z-index: 0;
 
 }
@@ -158,7 +158,7 @@
 .tree-background-signup {
   position: relative;
   left: 53vw;
-  bottom: 65vh;
+  bottom: 110vh;
   z-index: 0;
 
 }
@@ -200,6 +200,7 @@ button {
   font-size: 1.0em;
 
 }
+
 
 /*about section*/
 .tree-background-about {

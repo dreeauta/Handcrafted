@@ -27,6 +27,8 @@ import checkoutReducer from './checkout/checkout.reducer';
 import eventsContainer from './events/events';
 import eventsReducer from './events/events.reducer';
 import aboutContainer from './about/about';
+import addEventsReducer from './addEvents/addEvents.reducer';
+import addEventsContainer from './addEvents/addEvents';
 
 
 //burger menu imports
@@ -46,6 +48,7 @@ const reducer= Redux.combineReducers({
   cart: cartReducer,
   checkout: checkoutReducer,
   events: eventsReducer,
+  eventsadd: addEventsReducer,
   burgerMenu
 });
 
@@ -129,6 +132,10 @@ class AppLayout extends React.Component {
       Events
       </Link>
       <br/>
+      <Link to="/addevents" activeClassName="active">
+      Add an Event
+      </Link>
+      <br/>
       <Link to="/colorme" activeClassName="active">
       Color Me
       </Link>
@@ -163,6 +170,7 @@ class AppLayout extends React.Component {
         <Route path="/artwork" component={artworkContainer}/>
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
         <Route path="/events" component={eventsContainer}/>
+        <Route path="/addevents" component={addEventsContainer}/>
           <Route path="/about" component={aboutContainer}/>
 
 

@@ -8,7 +8,7 @@ export function onChange(data, propName) {
   }
 }
 
-export function submit(username, firstname, lastname, email, password,user_image) {
+export function submit(username, firstname, lastname, email, password, user_image) {
       let asyncAction = function(dispatch) {
         $.ajax({
           method: 'POST',

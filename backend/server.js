@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const Promise = require('bluebird');
 
-
 const pgp = require('pg-promise')(
   {
     promiseLib: Promise
@@ -95,6 +94,22 @@ app.get('/api/events', (req, resp, next) => {
   .then(pages => resp.json(pages))
   .catch(next);
 })
+
+app.post('/api/events', (req, resp, next) => {
+  let data = req.body;
+  db.one(`insert into events values (default, $1, $2, $3, $4, $5, $6) returning name, description, location, date, time, image, link`,
+    [data.name,
+    data.description,
+    data.location,
+    data.date,
+    data.time,
+    data.image,
+    data.link]
+  )
+  .then(pages => resp.json(pages))
+  .catch(next);
+})
+
 
 /*
 Request body shape:

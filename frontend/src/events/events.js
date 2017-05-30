@@ -35,8 +35,10 @@ render() {
     <center>
     <img src="./events/events-title.png"/>
 
+
     { showAllEvents}
 
+    
     </center>
 
     </div>
