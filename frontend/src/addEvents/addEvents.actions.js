@@ -37,9 +37,9 @@ export function uploadEventImage() {
     cloudinary.openUploadWidget({ cloud_name: 'dsyp1npet', upload_preset: 'sajrpxda'},
       function(error, result) {
       if (result !== undefined) {
-      let url = []
+      let url = ""
       result.forEach((result) => {
-        url.push(result.url)
+        url = result.url
       })
       dispatch({type: 'uploadImageSuccess', payload: url })
       }

@@ -29,14 +29,14 @@ export function fetchartworkItem(id) {
   return asyncAction;
 }
 
-export function addToCart(id, customer_id) {
+export function addToCart(id, token) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
       url: 'http://localhost:4000/api/shopping_cart/',
       data: JSON.stringify({
         id: id,
-        customer_id: customer_id
+        token: token
       }),
       contentType: 'application/json'
     })

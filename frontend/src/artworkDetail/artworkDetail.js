@@ -41,27 +41,30 @@ render() {
 
 return (
   <div>
-  <center>
-  <img src="./artwork/artwork-title.png"/>
+  <img className="artDetail-title" src="./artwork/artwork-title.png"/>
 
-
+  <div className="artist-info">
+  <img className="artist-profile" src={ artist_image }/>
+  <br/>
   { artistname }
   <br/>
   { artistbio }
   <br/>
   { email }
   <br/>
-  { artist_image }
+  </div>
 
+
+  <div className="artDetail-images">
 
   { artImages }
+  </div>
 
 
   <p>
   <button onClick={event=> this.props.addToCart(this.props.artWorkDescription.art_gallery, this.props.login.token)}>Add to Cart </button>
   </p>
 
-  </center>
    </div>
  );
 }

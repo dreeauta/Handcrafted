@@ -14,31 +14,29 @@ class home extends React.Component {
 
   render() {
 
- let loginName;
-    let token = this.props.login.token;
-    console.log(this.props);
-    if (token) {
-      loginName = "hi " + this.props.login.firstname + "!";
-    }
 
 
 
     return (
     <div>
-    <p>  { loginName }  </p>
 
 
-    <center>
-
-    <img className="handcrafted-title" src="./home/handcrafted-title.png"/>
-
-      <p className="home-slogan"> One of a kind pieces made with <img src="./home/heart.png"/> from the artists of ATL.  </p>
-
-
-      <img className="pen-gif" src="./home/pen.gif" alt="pen-gif"/>
+    <video id="background-video" loop autoPlay   muted off>
+      <source src="./home/paintvideo.mp4" type="video/mp4"/>
+      <source src="./home/paintvideo.mp4" type="video/ogg"/>
+      Your browser does not support the video tag.
+    </video>
 
 
-      </center>
+    <div className="home-title">
+  <span className="handcrafted-title"> HANDCRAFTED </span> 
+
+      <br/>
+       One of a kind pieces made with <img src="./home/heart.png"/> from the artists of ATL.
+
+       </div>
+
+
 
     </div>
   );

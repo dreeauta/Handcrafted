@@ -98,7 +98,7 @@ app.get('/api/events', (req, resp, next) => {
 
 app.post('/api/events', (req, resp, next) => {
   let data = req.body;
-  db.one(`insert into events values (default, $1, $2, $3, $4, $5, $6) returning name, description, location, date, time, image, link`,
+  db.one(`insert into events values (default, $1, $2, $3, $4, $5, $6, $7) returning *`,
     [data.name,
     data.description,
     data.location,
@@ -198,8 +198,10 @@ app.use (function Authenticate(req, res, next) {
     req.user = data;
     next();
   })
-  .catch(err =>
+  .catch(err => {
+    res.status(403)
     res.send('Unauthorized user')
+  }
   );
 });
 
@@ -211,7 +213,7 @@ app.post('/api/shopping_cart', (req, res, next) => {
   // db.any('select * from login_session where customer_id = $1', [req.user.customer_id])
 
   db.one(`insert into product_in_shopping_cart values (default, $1, $2) returning product_id, customer_id `,
-  [data.product_id,
+  [data.id,
   req.user.customer_id]
  )
 

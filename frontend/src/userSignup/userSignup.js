@@ -19,11 +19,9 @@ class userSignup extends React.Component {
     return (
       <div className="background-div">
 
-      <center>
-      <img src="./signup/signup-title.png"/>
+      <img className="signup-title" src="./signup/signup-title.png"/>
 
-      </center>
-      <br/>
+      <div className="signup-form">
         <label> First Name: </label>
         <br/>
         <input type="text" onChange={event => this.props.onChange(event.target.value, 'firstname')} />
@@ -46,18 +44,15 @@ class userSignup extends React.Component {
         <br/>
 
         <input type="password" onChange={event => this.props.onChange(event.target.value, 'password')} />
-      <br/>
-
-
 
       <br/>
 
       <Link to={"/login"}>
       <button className="signup-btn" onClick={() => this.props.submit(this.props.signup.username, this.props.signup.firstname, this.props.signup.lastname, this.props.signup.email, this.props.signup.password)}> SignUp </button> </Link>
 
-      <br/>
-      <img className="tree-background-signup" src="./tree-background.jpg"/>
+      </div>
 
+      <img className="signup-tree-gif" src="./tree.gif"/>
 
       </div>
 

@@ -22,12 +22,10 @@ render() {
 
   return (
     <div className="background-div">
-    <center>
-      <img src="./login/login-title.png"/>
-    </center>
-
+<span className="login-title"> Login  </span>
     <br/>
 
+    <div className="login-form">
     <label> Username: </label>
     <br/>
     <input type="text" onChange={event => this.props.loginChange(event.target.value, 'username')}/>
@@ -41,10 +39,10 @@ render() {
   <br/>
 <Link to={"/"}>   <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Login </button> </Link>
 <br/>
-
+  </div>
 {/*  <Link to={"/SignUp"}>  <button> SignUp </button> </Link> */}
 
-<img className="tree-background" src="./tree-background.jpg"/>
+<img className="tree-gif" src="./tree.gif"/>
 
     </div>
   );

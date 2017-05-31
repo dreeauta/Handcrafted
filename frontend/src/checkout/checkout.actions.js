@@ -26,3 +26,20 @@ export function submitPurchase(customer_id, total_price, address, address2, city
   }
   return asyncAction
 }
+
+// var handler = StripeCheckout.configure({
+//   // publishable key
+//   key: 'pk_test_gueNUYd91f9K8pegsWsTk0gb',
+//   locale: 'auto',
+//   token: function callback(token) {
+//     var stripeToken = token.id;
+//     // Make checkout API call here and send the stripe token
+//     // to the back end
+//   }
+// });
+// // this actually opens the popup modal dialog
+// handler.open({
+//   name: 'My awesome store',
+//   description: 'Some magazines',
+//   amount: amount * 100
+// });

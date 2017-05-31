@@ -127,23 +127,23 @@ class AppLayout extends React.Component {
       <main id="page-wrap">
       <div className= "category-nav">
       <Link to="/Artwork" activeClassName="active">
-      Artwork
+      <img src="./home/articon.png"/> Artwork
       </Link>
       <br/>
       <Link to="/artist_signup" activeClassName= "active">
-      Artist Signup
+      <img src="./home/artisticon.png"/> Artist Signup
       </Link>
       <br/>
       <Link to="/events" activeClassName="active">
-      Events
+      <img src="./home/eventsicon.png"/> Events
       </Link>
       <br/>
       <Link to="/addevents" activeClassName="active">
-      Add an Event
+      <img src="./home/addeventsicon.png"/> Add an Event
       </Link>
       <br/>
       <Link to="/about" activeClassName="active">
-      About
+      <img src="./home/abouticon.png"/> About
       </Link>
 
       </div>

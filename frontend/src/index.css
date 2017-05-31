@@ -1,29 +1,17 @@
 /*body {
-  overflow-y: hidden;
+overflow-y: hidden;
 }*/
 
+/*img {
+	filter: invert(100%);
 
-
-.category-nav {
-
-}
-.category-nav a{
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  margin-top: 2vh;
-
-}
-
-.category-nav a:hover {
-  font-weight: 600;
-  text-decoration: line-through;
-}
+}*/
 
 .navbar {
   float: right;
   font-family: 'Poppins', sans-serif;
-
+  z-index: 1000;
+  font-size: 1.3em;
 }
 
 .navbar a{
@@ -38,31 +26,67 @@
   font-weight: 600;
 }
 
+/*home styling*/
+.home-title{
+  position: absolute;
+  bottom: 5vh;
+  left: 40vw;
+  font-family: 'Poppins', sans-serif;
+  width: 50vw;
+  text-align: center;
+  background:rgba(255,255,255, 0.5);
+  padding: 5vw;
+  font-size: 1.2em;
+}
 
-.home-slogan {
+.handcrafted-title {
+  font-size: 3.5em;
+  letter-spacing: .2em;
+}
+/*.home-slogan {
   position: relative;
   bottom: 6vh;
   right: 11vw;
   font-family: 'Poppins', sans-serif;
 
+}*/
+#background-video{
+height: 70%;
+width: 100vw;
+top: 10vh;
 }
-.pen-gif {
-  width: 80vw;
-  height:70vh;
-  position: relative;
-  bottom: 5vh;
-}
-
-
 /*burger menu styling*/
 
+.category-nav {
+
+}
+.category-nav a{
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  filter: invert(100%);
+}
+
+.category-nav img {
+  position: relative;
+  top: 1vh;
+}
+
+.category-nav a:hover {
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
 /* Position and sizing of burger button */
+
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
+  width: 3vw;
+  height: 5vh;
+  left: 5vh;
+  top: 2vh;
 }
 
 /* Color/shape of burger icon bars */
@@ -72,8 +96,8 @@
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 5px;
+  width: 5px;
 }
 
 /* Color/shape of close button cross */
@@ -87,9 +111,8 @@
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   overflow-y: hidden;
-  text-align: center;
-  height: 80%;
-  overflow: hidden;
+  height: auto;
+
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -109,28 +132,40 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
+
+
 .title {
   position: relative;
   left: 20vw;
 }
 
 /*artwork page styling*/
+
+.artcover-title {
+  position: relative;
+  left: 16vw;
+  top: 1vh;
+  font-size: 3em;
+  font-family: 'Poppins', sans-serif;
+}
+
 .art-background {
 }
 
 .artCover img{
   display: inline-block;
-  width: 25vw;
   filter: grayscale(100%);
   margin-right: 5vw;
   margin-top: 7vh;
+  width: 25vw;
+  height: 50vh;
 }
 
 
 
 .artCover img:hover{
-  width: 25vw;
-  filter: grayscale(30%);
+  /*width: 31vw;*/
+  filter: grayscale(20%);
 }
 
 .artCover {
@@ -141,36 +176,61 @@
 
 }
 
+/*artworkDetail styling */
+.artDetail-title {
+  position: relative;
+  left: 16vw;
+  top: 1vh;
+  font-size: 3em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.artist-info {
+  position: relative;
+  left: 10vw;
+  font-family: 'Poppins', sans-serif;
+}
+
+.artist-profile {
+  width: 30vw;
+}
+
+.artDetail-images {
+  position: relative;
+  left: 60vw;
+  bottom: 70vh;
+}
+
 /*login and signup page*/
 
-.login {
-
-}
-
-.tree-background {
+.login-title {
   position: relative;
-  left: 53vw;
-  bottom: 35vh;
-  z-index: 0;
-
+  left: 14vw;
+  top: 10vh;
+  font-size: 2.3em;
+  font-family: 'Barrio', cursive;
 }
 
-.tree-background-signup {
+.tree-gif {
   position: relative;
-  left: 53vw;
-  bottom: 110vh;
+  left: 50vw;
+  bottom: 40vh;
   z-index: 0;
+  width: 50vw;
 
 }
 
-/*form styling*/
+
+
+/*login form styling*/
 
 input:focus {
     border: 3px solid #555;
 }
 
-input{
+.login-form input{
   position: relative;
+  top: 10vh;
   left: 20vw;
   width: 30vw;
   padding: 8px 16px;
@@ -181,26 +241,143 @@ input{
 
 }
 
-label{
+.login-form label{
   position: relative;
+  top: 10vh;
   left: 20vw;
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
 
 }
 
-button {
+.login-form button {
   position: relative;
-
   left: 30vw;
-
   width: 10vw;
-  height: 5vh;
+  height: 6vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.0em;
+  top: 10vh;
+}
+
+/*signup section*/
+.signup-title {
+  position: relative;
+  left: 13vw;
+  bottom: 3vh;
+  font-size: 2em;
+  font-family: 'Poppins', sans-serif;
+}
+.signup-tree-gif {
+  position: relative;
+  left: 50vw;
+  bottom: 80vh;
+  z-index: 0;
+  width: 50vw;
 
 }
 
+.signup-form input{
+  position: relative;
+  bottom: 2vh;
+  left: 20vw;
+  width: 25vw;
+  padding: 5px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 1.0em;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.signup-form label{
+  position: relative;
+  bottom: 2vh;
+  left: 20vw;
+  font-size: 1.0em;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.signup-form button {
+  position: relative;
+  left: 28vw;
+  width: 10vw;
+  height: 6vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0em;
+  top: 2vh;
+}
+
+/*add event section */
+.addevent-title {
+  position: relative;
+  left: 13vw;
+  bottom: 3vh;
+  font-size: 2em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.event-tree-gif {
+  position: relative;
+  left: 65vw;
+  bottom: 80vh;
+  z-index: 0;
+  width: 40vw;
+}
+
+.event-form input{
+  position: relative;
+  bottom: 2vh;
+  left: 10vw;
+  width: 25vw;
+  padding: 5px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 0.7em;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.event-form label{
+  position: relative;
+  bottom: 2vh;
+  left: 10vw;
+  font-size: 1.0em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.event-form2 input{
+  position: relative;
+  bottom: 54vh;
+  left: 40vw;
+  width: 25vw;
+  padding: 5px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 0.7em;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.event-form2 label{
+  position: relative;
+  bottom: 54vh;
+  left: 40vw;
+  font-size: 1.0em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.event-form2 button {
+  position: relative;
+  left: 5vw;
+  bottom: 50vh;
+  width: 10vw;
+  height: 6vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: .9em;
+  top: 2vh;
+}
 
 /*about section*/
 .tree-background-about {
