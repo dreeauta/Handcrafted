@@ -7,12 +7,26 @@ import { Link } from 'react-router';
 class checkoutCart extends React.Component {
 
   render() {
+
+    let all_items = this.props.cart.cart_items.map((input,idx) => {
+      <span key={idx} > {input.name} <br/>
+      <img src={input.image_path}/> {input.price} </span>
+    });
+
+  let total= 0;
+
+  total = this.props.cart.cart_items.map((input, idx) => {
+        total += input.price;
+      })
+
     return (
 <div>
 <center>
 
 <img src="./checkout/checkout-title.png"/>
   </center>
+
+
       <label> Name: </label>
       <br/>
 
@@ -46,12 +60,16 @@ class checkoutCart extends React.Component {
       <br/>
 
       <Link to={"/confirmation"}>
-      <button onClick={() => this.props.submitPurchase(this.props.checkout.name, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip)}>
+      <button onClick={() => this.props.submitPurchase(this.props.login, total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip)}>
       Confirm
       </button>
       </Link>
 
+        { this.props.artworkItem.artworkItem.name}
+        <img src={this.props.artworkItem.artworkItem.image_path}/>
 
+        <br/>
+        total price: ${total}.00
       </div>
     )
   }

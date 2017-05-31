@@ -32,6 +32,7 @@ export default function reducer(state = INITIAL_STATE, action) {
       token: ""
     })
   }
+  
 
   return state;
 }

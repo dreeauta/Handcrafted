@@ -44,18 +44,15 @@ render() {
 
     <br/>
 
-    <label> Image: </label>
-    <input type="text" onClick={event =>
-    this.props.uploadEventImage(event.target.value,'image')}/>
-
-
-    <br/>
 
     <label> Link: </label>
     <input type="text" onChange={event =>
     this.props.onChangeEvents(event.target.value,'link')}/>
 
     <br/>
+
+
+    <button onClick={event =>this.props.uploadEventImage(event.target.value,'image')}> Upload Image </button>
 
 
     <br/>

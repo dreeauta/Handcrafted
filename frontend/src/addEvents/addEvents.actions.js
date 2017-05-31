@@ -35,7 +35,15 @@ export function submitEvents(name, description, location, date, time, image, lin
 export function uploadEventImage() {
   let asyncAction = function(dispatch) {
     cloudinary.openUploadWidget({ cloud_name: 'dsyp1npet', upload_preset: 'sajrpxda'},
-      function(error, result) { console.log(error, result) });
+      function(error, result) {
+      if (result !== undefined) {
+      let url = []
+      result.forEach((result) => {
+        url.push(result.url)
+      })
+      dispatch({type: 'uploadImageSuccess', payload: url })
+      }
+    });
   }
   return asyncAction;
 }

@@ -74,25 +74,6 @@ app.get('/api/artworkItem/:id', (req, resp, next) => {
 })
 
 
-
-app.get('/api/survivalgear', (req, resp,next) => {
-  db.any('select * from product where product.category = "survival_gear"')
-  .then(pages => resp.json(pages))
-  .catch(next);
-})
-
-app.get('/api/jewelry', (req, resp,next) => {
-  db.any('select * from product where product.category = "jewelry"')
-  .then(pages => resp.json(pages))
-  .catch(next);
-})
-
-app.get('/api/accessories', (req, resp,next) => {
-  db.any('select * from product where product.category = "jewelry"')
-  .then(pages => resp.json(pages))
-  .catch(next);
-})
-
 // app.get('/api/category/:id', (req, resp, next) => {
 //   let id = req.params.id;
 //   db.any('select * from product where id = $1', id)

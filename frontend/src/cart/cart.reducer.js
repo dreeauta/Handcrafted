@@ -13,8 +13,7 @@ export default function reducer(state = INITIAL_STATE, action) {
   }
   else if (action.type === 'addToCart'){
     return Object.assign({}, state, {
-      cart_items: action.payload.cart_items,
-      token: action.payload.auth_token
+      cart_items: action.payload
     })
   }
   else if (action.type === 'deleteItem') {

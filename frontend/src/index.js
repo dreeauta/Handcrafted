@@ -27,6 +27,8 @@ import artworkDetailContainer from './artworkDetail/artworkDetail';
 import artworkDetailReducer from './artworkDetail/artworkDetail.reducer';
 import artworkItemContainer from './artworkItem/artworkItem';
 import artworkItemReducer from './artworkItem/artworkItem.reducer';
+import artistSignupContainer from './artistSignup/artistSignup';
+import artistSignupReducer from './artistSignup/artistSignup.reducer';
 
 import checkoutContainer from './checkout/checkout';
 import checkoutReducer from './checkout/checkout.reducer';
@@ -56,13 +58,14 @@ const reducer= Redux.combineReducers({
   checkout: checkoutReducer,
   events: eventsReducer,
   eventsadd: addEventsReducer,
+  artistsignup: artistSignupReducer,
   burgerMenu
 });
 
 const store = Redux.createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  compose(Redux.applyMiddleware(ReduxThunk), autoRehydrate())
+  Redux.compose(Redux.applyMiddleware(ReduxThunk), autoRehydrate())
 );
 
 
@@ -127,16 +130,8 @@ class AppLayout extends React.Component {
       Artwork
       </Link>
       <br/>
-      <Link to="/jewelry" activeClassName="active">
-      Jewelry
-      </Link>
-      <br/>
-      <Link to="/accessories" activeClassName="active">
-      Accessories
-      </Link>
-      <br/>
-      <Link to="/tacticalgear" activeClassName="active">
-      Tactical Gear
+      <Link to="/artist_signup" activeClassName= "active">
+      Artist Signup
       </Link>
       <br/>
       <Link to="/events" activeClassName="active">
@@ -145,10 +140,6 @@ class AppLayout extends React.Component {
       <br/>
       <Link to="/addevents" activeClassName="active">
       Add an Event
-      </Link>
-      <br/>
-      <Link to="/colorme" activeClassName="active">
-      Color Me
       </Link>
       <br/>
       <Link to="/about" activeClassName="active">
@@ -181,6 +172,8 @@ class AppLayout extends React.Component {
         <Route path="/artwork" component={artworkContainer}/>
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
+        <Route path="/artist_signup"
+        component={artistSignupContainer}/>
         <Route path="/events" component={eventsContainer}/>
         <Route path="/addevents" component={addEventsContainer}/>
         <Route path="/about" component={aboutContainer}/>

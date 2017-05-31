@@ -17,5 +17,11 @@ export default function reducer(state = INITIAL_STATE, action) {
   else if (action.type === "submitEvents"){
 
   }
+  else if (action.type === 'uploadImageSuccess'){
+    return Object.assign({}, state, {
+      image: action.payload,
+      imageuploaded: 'Image was uploaded!'
+    })
+  }
   return state;
 }

@@ -16,25 +16,28 @@ class shoppingCart extends React.Component {
     }
   }
 
-/*
-  let displaycartItems;
-
-  if (this.props.cart.shoppingcartItems){
-    displaycartItems = this.props.cart.shoppingcartItems.map((input, idx) =>
-  <p key={idx}> <img src={input.image_path}/> <br/>
-  this.props.cart.shoppingcartItems.price
-  </p>
-    );
-  }
-  */
 
   render() {
+
+    let displaycartItems;
+
+    if (this.props.cart.shoppingcartItems){
+      displaycartItems = this.props.cart.shoppingcartItems.map((input, idx) =>
+    <p key={idx}> <img src={input.image_path}/> <br/>
+    this.props.cart.shoppingcartItems.price
+    </p>
+      );
+    }
+
 
     return(
       <div>
       <img src="./cart/cart-title.png"/>
       <p>
 
+      { this.props.artworkItem.artworkItem.name}
+      <img src={ this.props.artworkItem.artworkItem.image_path}/>
+      <button onClick={() => this.props.deleteItem(this.props.artworkItem.artworkItem.id)}> Delete Item </button>
 
       </p>
 

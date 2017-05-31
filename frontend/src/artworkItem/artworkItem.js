@@ -22,8 +22,15 @@ console.log(this.props)
 return (
   <div>
 
-   {displayItem}
-   <button onClick={event => this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}> Add to Cart </button>
+  <img src={this.props.artworkItem.artworkItem.image_path}/>
+  <br/>
+  { this.props.artworkItem.artworkItem.name}
+
+  {this.props.artworkItem.artworkItem.description}
+  <br/>
+  {this.props.artworkItem.artworkItem.price}
+
+   <button onClick={(event) => { this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}}> Add to Cart </button>
 
    </div>
  );
