@@ -2,7 +2,6 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './artistSignup.actions';
 import { Link } from 'react-router';
-import { cloudinaryConfig, CloudinaryImage, CloudinaryVideo } from 'react-cloudinary';
 
 // import sha1 from 'sha1';
 // import superagent from 'superagent';
