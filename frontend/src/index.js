@@ -32,8 +32,8 @@ import artistSignupFormContainer from './artistSignup/artistSignup';
 import artistSignupReducer from './artistSignup/artistSignup.reducer';
 import artistProfileContainer from './artistProfile/artistProfile';
 import artistProfileReducer from './artistProfile/artistProfile.reducer';
-import forumReducer from './forum/forum.reducer';
-import forumContainer from './forum/forum.reducer';
+// import forumReducer from './forum/forum.reducer';
+// import forumContainer from './forum/forum.reducer';
 
 import checkoutContainer from './checkout/checkout';
 import checkoutReducer from './checkout/checkout.reducer';
@@ -66,7 +66,7 @@ const reducer= Redux.combineReducers({
   eventsadd: addEventsReducer,
   artistsignup: artistSignupReducer,
   artistProfile : artistProfileReducer,
-  forum: forumReducer,
+  // forum: forumReducer,
   burgerMenu,
   messenger
 });
@@ -139,10 +139,7 @@ class AppLayout extends React.Component {
       <Link to="/addevents" activeClassName="active">
       <img src="./home/addeventsicon.png"/> Add Event
       </Link>
-      <br/>
-      <Link to="/forum" activeClassName="active">
-      <img src="./home/addeventsicon.png"/> Forum
-      </Link>
+
       <br/>
 
       <Link to="/about" activeClassName="active">
@@ -188,10 +185,6 @@ class AppLayout extends React.Component {
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/artist_signup"
-        component={artistSignupFormContainer}/>
-
-        <Route path="/forum"
-        component={forumContainer}/>
 
         <Route path="/events" component={eventsContainer}/>
         <Route path="/addevents" component={addEventsContainer}/>
