@@ -47,7 +47,6 @@ import addEventsContainer from './addEvents/addEvents';
 //burger menu imports
 import {reducer as burgerMenu} from 'redux-burger-menu';
 import { stack as Menu } from 'react-burger-menu';
-import { reducer as messenger } from 'redux-messenger';
 
 
 import './index.css';
@@ -67,8 +66,7 @@ const reducer= Redux.combineReducers({
   artistsignup: artistSignupReducer,
   artistProfile : artistProfileReducer,
   // forum: forumReducer,
-  burgerMenu,
-  messenger
+  burgerMenu
 });
 
 const store = Redux.createStore(
@@ -139,7 +137,10 @@ class AppLayout extends React.Component {
       <Link to="/addevents" activeClassName="active">
       <img src="./home/addeventsicon.png"/> Add Event
       </Link>
-
+      <br/>
+      <Link to="/forum" activeClassName="active">
+      <img src="./home/addeventsicon.png"/> Forum
+      </Link>
       <br/>
 
       <Link to="/about" activeClassName="active">
@@ -185,6 +186,8 @@ class AppLayout extends React.Component {
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/artist_signup"
+        component={artistSignupFormContainer}/>
+
 
         <Route path="/events" component={eventsContainer}/>
         <Route path="/addevents" component={addEventsContainer}/>
