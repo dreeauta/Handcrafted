@@ -25,7 +25,7 @@ export function fetchArtworkDetail(id) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'GET',
-      url: BASEURL +/api/artwork/' + id.toString(),
+      url: BASEURL +'/api/artwork/' + id.toString(),
       dataType: 'json'
     })
     .then(data => dispatch(displayArtworkDetail(data)))
