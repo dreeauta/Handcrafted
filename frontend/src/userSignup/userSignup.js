@@ -2,8 +2,6 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './userSignup.actions';
 import { Link } from 'react-router';
-import Dropzone from 'react-dropzone';
-import { cloudinaryConfig, CloudinaryImage, CloudinaryVideo } from 'react-cloudinary';
 
 // import sha1 from 'sha1';
 // import superagent from 'superagent';

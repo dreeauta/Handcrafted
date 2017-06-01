@@ -2,7 +2,6 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './addEvents.actions';
 import { Link } from 'react-router';
-import Dropzone from 'react-dropzone';
 
 
 class addEvents extends React.Component {
