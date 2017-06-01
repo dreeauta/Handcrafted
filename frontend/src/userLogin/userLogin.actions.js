@@ -19,7 +19,7 @@ export function logout() {
 
 
 
-export function login(username, password) {
+export function submitLogin(username, password) {
   let asyncAction = (dispatch) => {
     $.ajax({
       url: 'http://localhost:4000/api/user/login',

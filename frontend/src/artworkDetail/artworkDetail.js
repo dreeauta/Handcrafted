@@ -41,18 +41,22 @@ render() {
 
   if (this.props.artworkDescription.art_gallery) {
     artImages =
-    this.props.artworkDescription.art_gallery.map((input,idx) => <p key = {idx} className="artwork-pieces"> <Link to={"/artworkItem/"+ input.id}> <img src={input.image_path}/> </Link>  ${input.price}  {input.name}
+    this.props.artworkDescription.art_gallery.map((input,idx) => <p key = {idx}> <Link to={"/artworkItem/"+ input.id}> <img src={input.image_path}/> </Link>
+    <span className="artwork-name"> {input.name}  </span>
+
      </p> );
   }
 
 return (
-  <div>
-  <img className="artDetail-title" src="./artwork/artwork-title.png"/>
-
-  <div className="artist-info">
-  <img className="artist-profile" src={ artist_image }/>
-  <br/>
+  <div className="artwork-div">
+  <span className="artwork-title">
   { artistname }
+  </span>
+
+
+
+  <div className="artwork-info">
+  <img className="artwork-profile" src={ artist_image }/>
   <br/>
   { artistbio }
   <br/>
@@ -61,15 +65,11 @@ return (
   </div>
 
 
-  <div className="artDetail-images">
-
+  <div className="artwork-images">
   { artImages }
   </div>
 
 
-  <p>
-  <button onClick={event=> this.props.addToCart(this.props.artWorkDescription.art_gallery, this.props.login.token)}>Add to Cart </button>
-  </p>
 
    </div>
  );

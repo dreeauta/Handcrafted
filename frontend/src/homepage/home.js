@@ -22,14 +22,14 @@ class home extends React.Component {
 
 
     <video id="background-video" loop autoPlay   muted off>
-      <source src="./home/paintvideo.mp4" type="video/mp4"/>
-      <source src="./home/paintvideo.mp4" type="video/ogg"/>
+      <source src="./home/paintvideo-trim.mp4" type="video/mp4"/>
+      <source src="./home/paintvideo-trim.mp4" type="video/ogg"/>
       Your browser does not support the video tag.
     </video>
 
 
     <div className="home-title">
-  <span className="handcrafted-title"> HANDCRAFTED </span> 
+  <span className="handcrafted-title"> HANDCRAFTED </span>
 
       <br/>
        One of a kind pieces made with <img src="./home/heart.png"/> from the artists of ATL.

@@ -40,7 +40,7 @@ export function addToCart(id, token) {
       }),
       contentType: 'application/json'
     })
-    .then(data => dispatch({type: 'add-to-cart-success', payload: data}))
+    .then(data => dispatch({type: 'addToCart', payload: data}))
     .catch(resp => {
       let error = resp.responseJSON && resp.responseJSON.message || 'Did not work';
       dispatch({

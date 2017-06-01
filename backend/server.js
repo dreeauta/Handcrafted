@@ -102,12 +102,12 @@ app.post('/api/events', (req, resp, next) => {
   let data = req.body;
   db.one(`insert into events values (default, $1, $2, $3, $4, $5, $6, $7) returning *`,
     [data.name,
-    data.description,
     data.location,
+    data.link,
     data.date,
-    data.time,
     data.image,
-    data.link]
+    data.description,
+    data.time]
   )
   .then(pages => resp.json(pages))
   .catch(next);
@@ -228,18 +228,20 @@ app.post('/api/shopping_cart', (req, res, next) => {
 
   db.one(`insert into product_in_shopping_cart values (default, $1, $2) returning * `,
   [data.id,
-  req.user.customer_id]
+  req.loginSession.customer_id]
  )
+ .then(data => db.any('select * from product_in_shopping_cart where customer_id = $1', [req.loginSession.customer_id]))
 
 .then(data => res.json(data))
 .catch(next);
 });
 
 
-app.delete('/api/delete_item_from_cart', (req, res, next) => {
+app.delete('/api/shopping_cart/', (req, res, next) => {
   let data = req.body;
-  let id = req.params.id;
-  db.result('delete from product_in_shopping_cart where id = $1', [data.product_id])
+  console.log(data.id);
+
+  db.result('delete from product_in_shopping_cart where id = $1', [data.id])
   .then(data => res.json(data))
   .catch(next);
 })
@@ -313,34 +315,26 @@ app.post('/api/checkout', (req, res, next) => {
 // })
 
 // Click Submit payment button
-app.post('/api/ccinfo', (req, resp, next) => {
+app.post('/api/ccinfo', (req, res, next) => {
     let stripeToken = req.body.stripeToken;
     let email = req.body.email;
     let amount = req.body.amount;
-    stripe.customers.create({
-            email: email
-        })
-        .then(customer => {
-            return stripe.customers.createSource(customer.id, {
-                source: stripeToken
-            });
-        })
-        .then(source => {
-            return stripe.charges.create({
-                amount: amount,
-                currency: 'usd',
-                customer: source.customer,
-                description: 'Test Charge'
-            });
-        })
-        .then(charge => {
-            console.log(charge);
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
-    resp.json({message: "purchase successful"});
-})
+    // stripe.customers.create({
+    //         email: email
+    //     })
+    //     .then(customer => {
+    //         return stripe.customers.createSource(customer.id, {
+    //             source: stripeToken
+    //         });
+    //     })
+    stripe.charges.create({
+              amount: amount,
+              currency: 'usd',
+              source: token,
+              description: 'Test Charge'
+          })
+    .catch(next);
+});
 
 
 

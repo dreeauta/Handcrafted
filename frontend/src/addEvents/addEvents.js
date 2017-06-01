@@ -12,9 +12,11 @@ render() {
 
 
   return (
-    <div>
+    <div className="addevents">
 
-    <img className="addevent-title" src="./addevent/addevent.png"/>
+    <span className="addevent-title">
+      Add Event
+    </span>
 
     <div className="event-form">
 
@@ -66,8 +68,8 @@ render() {
 
     <button  onClick={event =>this.props.uploadEventImage(event.target.value,'image')}> Upload Image </button>
 
-    <br/>
 
+    <span className="addevent-submit">
     <button onClick={() =>
     this.props.submitEvents(
       this.props.eventsadd.name,
@@ -75,7 +77,8 @@ render() {
       this.props.eventsadd.location,
       this.props.eventsadd.date, this.props.eventsadd.time,
       this.props.eventsadd.image, this.props.eventsadd.link)}> Add Event </button>
-      </div>
+    </span>
+    </div>
 
       <img className="event-tree-gif" src="./tree.gif"/>
 

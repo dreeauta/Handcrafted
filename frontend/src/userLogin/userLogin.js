@@ -42,11 +42,11 @@ render() {
     <input type="password" onChange={event => this.props.loginChange(event.target.value, 'password')}/>
   <br/>
   <br/>
-  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Login </button>
+  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
 <br/>
   </div>
 
-<img className="tree-gif" src="./tree.gif"/>
+<img className="login-tree-gif" src="./tree.gif"/>
 
     </div>
   );

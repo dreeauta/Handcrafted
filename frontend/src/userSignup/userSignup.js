@@ -10,7 +10,6 @@ import { cloudinaryConfig, CloudinaryImage, CloudinaryVideo } from 'react-cloudi
 //
 
 
-
 class userSignup extends React.Component {
 
 
@@ -19,7 +18,7 @@ class userSignup extends React.Component {
     return (
       <div className="background-div">
 
-      <img className="signup-title" src="./signup/signup-title.png"/>
+      <span className="signup-title"> Create New Account  </span>
 
       <div className="signup-form">
         <label> First Name: </label>

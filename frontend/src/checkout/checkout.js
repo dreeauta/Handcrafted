@@ -8,25 +8,22 @@ class checkoutCart extends React.Component {
 
   render() {
 
-    let all_items = this.props.cart.cart_items.map((input,idx) => {
-      <span key={idx} > {input.name} <br/>
-      <img src={input.image_path}/> {input.price} </span>
-    });
+    let total=0;
 
-  let total= 0;
+    if (this.props.cart_item) {
+      this.props.cart_items.map(input =>
+      total = input.price++)
+    }
 
-  total = this.props.cart.cart_items.map((input, idx) => {
-        total += input.price;
-      })
 
     return (
-<div>
-<center>
+<div className="checkout-div">
 
-<img src="./checkout/checkout-title.png"/>
-  </center>
+<span className="checkout-title">
+  Checkout
+</span>
 
-
+    <div className="checkout-form">
       <label> Name: </label>
       <br/>
 
@@ -62,24 +59,42 @@ class checkoutCart extends React.Component {
       <br/>
       <input type="text" onChange={event =>
       this.props.onChangePurchase(event.target.value,'email')}/>
-      <br/>
+      </div>
 
-      <button onClick={() => this.props.creditcart(this.props.checkout.total, this.props.login.token, this.props.checkout.email)}>
-      Confirm
+      <div className="checkout-items">
+      { this.props.cart.cart_items.map((input, idx) =>
+    <p key={idx}> <img className="checkout-image" src={input.image_path}/>
+    <span className="checkout-name"> {input.name}
+    </span>
+    <span className="checkout-price">    ${ input.price }
+    </span>
 
-      </button>
-      <Link to={"/confirmation"}>
-      <button onClick={() => this.props.submitPurchase(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
-      this.props.checkout.email)}>
-      Confirm
-      </button>
-      </Link>
+    </p>)}
 
-        { this.props.artworkItem.artworkItem.name}
-        <img src={this.props.artworkItem.artworkItem.image_path}/>
+      </div>
+
+      <span className="checkout-total">
+        Total: ${total}.00
 
         <br/>
-        total price: ${total}.00
+      <button onClick={() => this.props.creditcard(this.props.checkout.total, this.props.login.token)}>
+      Add Credit Card
+      </button>
+
+      </span>
+
+      <br/>
+
+      <span className="checkout-confirm">
+      <Link to={"/confirmation"}>
+      <button onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
+      this.props.checkout.email)}>
+      Confirm Purchase
+      </button>
+      </Link>
+      </span>
+
+
       </div>
     )
   }

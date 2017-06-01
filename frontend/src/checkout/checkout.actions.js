@@ -9,6 +9,15 @@ export function onChangePurchase(data, propName){
   }
 }
 
+// export function updateTotal(id,value){
+//   return {
+//     type: 'update_checkout',
+//     id,
+//     value
+//   };
+// };
+
+
 export function submitPurchaseInfo(customer_id, total_price, address, address2, city, zip,email){
   let asyncAction = function(dispatch) {
     $.ajax({
@@ -47,47 +56,29 @@ export function submitPurchaseInfo(customer_id, total_price, address, address2, 
 // });
 
 
-export function creditcard(amount, token, email) {
+export function creditcard(amount, token) {
     let asyncAction = function(dispatch) {
-        let handler = StripeCheckout.configure({
+        let handler = window.StripeCheckout.configure({
             key: 'pk_test_TBTmaqlCrmmjDKWSSYI2G66g',
             // image: '/envelope.png',
             locale: 'auto',
-            token: function callback(token) {
-                var stripeToken = token.id;
-                console.log('Public stripe token recieved if payment info verified: ', stripeToken);
-                // If verified, send stripe token to backend
-                $.ajax({
-                    type: 'POST',
-                    url: BASEURL + '/api/ccinfo',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        stripeToken: stripeToken,
-                        email: email,
-                        amount: amount
-                    })
-                })
-                // After payment is processed in the back end send another request to update the database and set state
-                .then(response => {
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://localhost:4000/api/ccinfo'
-                        contentType: 'application/json',
-                        data: JSON.stringify({
-                            token: token
-                        })
-                    })
-                    .then(response => {
-                        hashHistory.push('/confirmation');
-                        dispatch({
-                            type: 'purchase-confirmed'
-                        })
-                    })
-                })
+            token: function callback(stripeToken) {
+              $.ajax({
+                  type: 'POST',
+                  url: 'http://localhost:4000/api/ccinfo',
+                  contentType: 'application/json',
+                  data: JSON.stringify({
+                      stripeToken: stripeToken.id,
+                      amount: amount,
+                      token
+                  })
+              })
+
             }
         });
         handler.open({
             name: 'Handcrafted',
+            description: 'art',
             amount: amount
         });
     }

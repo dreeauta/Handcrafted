@@ -4,7 +4,6 @@ const INITIAL_STATE = {
   address2:"",
   city: "",
   zip: "",
-  email: "",
   token: "",
   total: ""
 }

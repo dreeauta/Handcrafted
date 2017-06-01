@@ -25,20 +25,24 @@ render() {
    console.log(this.props.art.featured_artist.firstname);
 
    if (this.props.art.featured_artist) {
-     coverImages = this.props.art.featured_artist.map((input,idx) => <span key={idx} className="artCover"> <Link to={"/artwork/"+ input.id}>  <img src={input.featured_image}/></Link>
+     coverImages = this.props.art.featured_artist.map((input,idx) => <span key={idx} className="artCover" > <Link to={"/artwork/"+ input.id}>  <img src={input.featured_image}/>
+     <span className="artist-name"> {input.name} </span>
+     </Link>
     </span>  );
    }
 
 return (
-  <div className="art-background">
+  <div className="artcover-background">
 
 
-  <img className="artcover-title" src="./artwork/artwork-title.png"/>
+  <span className="artcover-title"> Artist  </span>
 
-  <br/>
+
+  <div className="artcover-scrollmenu">
 
   { coverImages }
 
+  </div>
 
 
 

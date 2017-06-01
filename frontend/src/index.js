@@ -7,6 +7,7 @@ import ReduxThunk from 'redux-thunk';
 
 import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 
+
 import {persistStore, autoRehydrate} from 'redux-persist';
 import CookieStorage from 'redux-persist-cookie-storage';
 
@@ -34,7 +35,6 @@ import artistProfileReducer from './artistProfile/artistProfile.reducer';
 import forumReducer from './forum/forum.reducer';
 import forumContainer from './forum/forum.reducer';
 
-
 import checkoutContainer from './checkout/checkout';
 import checkoutReducer from './checkout/checkout.reducer';
 import eventsContainer from './events/events';
@@ -47,6 +47,7 @@ import addEventsContainer from './addEvents/addEvents';
 //burger menu imports
 import {reducer as burgerMenu} from 'redux-burger-menu';
 import { stack as Menu } from 'react-burger-menu';
+import { reducer as messenger } from 'redux-messenger';
 
 
 import './index.css';
@@ -66,7 +67,8 @@ const reducer= Redux.combineReducers({
   artistsignup: artistSignupReducer,
   artistProfile : artistProfileReducer,
   forum: forumReducer,
-  burgerMenu
+  burgerMenu,
+  messenger
 });
 
 const store = Redux.createStore(
@@ -129,16 +131,13 @@ class AppLayout extends React.Component {
       <img src="./home/articon.png"/> Artwork
       </Link>
       <br/>
-      <Link to="/artist_signup" activeClassName= "active">
-      <img src="./home/artisticon.png"/> Artist Signup
-      </Link>
-      <br/>
+
       <Link to="/events" activeClassName="active">
       <img src="./home/eventsicon.png"/> Events
       </Link>
       <br/>
       <Link to="/addevents" activeClassName="active">
-      <img src="./home/addeventsicon.png"/> Add an Event
+      <img src="./home/addeventsicon.png"/> Add Event
       </Link>
       <br/>
       <Link to="/forum" activeClassName="active">
@@ -190,8 +189,6 @@ class AppLayout extends React.Component {
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/artist_signup"
         component={artistSignupFormContainer}/>
-        <Route path="/artistProfile"
-        component={artistProfileContainer}/>
 
         <Route path="/forum"
         component={forumContainer}/>

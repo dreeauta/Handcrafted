@@ -1,12 +1,7 @@
 import $ from 'jquery';
 
 
-export function shoppingCart(data) {
-  return {
-    type: 'shopping-cart',
-    payload: data
-  }
-}
+
 
 
 export function pageError(resp){
@@ -24,7 +19,7 @@ export function getShoppingCart(token) {
       .then(data => {
         dispatch({
           type: 'shopping-cart',
-          data: data
+          payload: data
         });
       })
       .catch(resp => {
@@ -38,14 +33,15 @@ export function getShoppingCart(token) {
 }
 
 
-export function deleteItem(id, customer_id) {
+export function deleteItem(id, token) {
+  console.log(id)
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'DELETE',
       url: 'http://localhost:4000/api/shopping_cart/',
       data: JSON.stringify({
-        product_id: id,
-        customer_id: customer_id
+        id: id,
+        token: token
       }),
       contentType: 'application/json'
     })

@@ -15,7 +15,7 @@ render() {
   let showAllEvents;
 
   if (this.props.events.all_events) {
-    showAllEvents = this.props.events.all_events.map((input, idx) => <span  key={idx}>  <h2 className="event-name"> {input.name} </h2> <img className="event-image" src={input.image}/>
+    showAllEvents = this.props.events.all_events.map((input, idx) => <span  className="event-info" key={idx}>  <h2 className="event-name"> {input.name} </h2> <img className="event-image" src={input.image}/>
     <br/>
     <span className="event-description"> {input.description}
     </span>
@@ -31,15 +31,15 @@ render() {
 
   return(
 
-    <div>
-    <center>
-    <img src="./events/events-title.png"/>
+    <div className="event-title-div">
+    <span className="event-title">
+       Events
+    </span>
 
 
     { showAllEvents}
 
-    
-    </center>
+
 
     </div>
 
