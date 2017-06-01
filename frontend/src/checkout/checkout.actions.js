@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { hashHistory } from 'react-router';
 let BASEURL = "http://locahost:3333";
 if (window.location.hostname !== 'localhost') {
-  BASEURL = "";
+  BASEURL = '';
 }
 
 export function onChangePurchase(data, propName){

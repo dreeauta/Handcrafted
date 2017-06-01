@@ -2,7 +2,7 @@ import $ from 'jquery';
 let cloudinary = window.cloudinary
 let BASEURL = "http://locahost:3333";
 if (window.location.hostname !== 'localhost') {
-  BASEURL = "";
+  BASEURL = '';
 }
 
 export function onChangeEvents(data, propName) {
