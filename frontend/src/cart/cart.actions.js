@@ -18,7 +18,7 @@ export function pageError(resp){
 export function getShoppingCart(token) {
   console.log('token': token);
   return (dispatch) => {
-    $.get('${BASEURL}/api/shopping_cart', { token: token })
+    $.get(BASEURL +'/api/shopping_cart', { token: token })
       .then(data => {
         dispatch({
           type: 'shopping-cart',
@@ -41,7 +41,7 @@ export function deleteItem(id, token) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'DELETE',
-      url: '${BASEURL}/api/shopping_cart/',
+      url: BASEURL +'/api/shopping_cart/',
       data: JSON.stringify({
         id: id,
         token: token

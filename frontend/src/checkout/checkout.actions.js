@@ -26,7 +26,7 @@ export function submitPurchaseInfo(customer_id, total_price, address, address2, 
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: '${BASEURL}/api/checkout',
+      url: BASEURL +'/api/checkout',
       data: JSON.stringify({
         customer_id: customer_id,
         total_price: total_price,
@@ -69,7 +69,7 @@ export function creditcard(amount, token) {
             token: function callback(stripeToken) {
               $.ajax({
                   type: 'POST',
-                  url: '${BASEURL}/api/ccinfo',
+                  url: BASEURL +'/api/ccinfo',
                   contentType: 'application/json',
                   data: JSON.stringify({
                       stripeToken: stripeToken.id,

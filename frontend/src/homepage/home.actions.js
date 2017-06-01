@@ -24,7 +24,7 @@ export function fetchImages(title){
   let asyncAction = function(dispatch) {
     $.ajax({
       method:'GET',
-      url: '${BASEURL}/api/products'
+      url: BASEURL +'/api/products'
     })
     .then(data => dispatch(displayImages(data)))
     .catch(resp => dispatch(pageError(resp)))

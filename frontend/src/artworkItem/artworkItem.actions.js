@@ -24,7 +24,7 @@ export function fetchartworkItem(id) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'GET',
-      url: '${BASEURL}/api/artworkItem/' + id
+      url: BASEURL +'/api/artworkItem/' + id
     })
     .then(data => dispatch(displayartworkItem(data)))
     .catch(resp => dispatch(pageError(resp)))
@@ -36,7 +36,7 @@ export function addToCart(id, token) {
   return function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: '${BASEURL}/api/shopping_cart/',
+      url: BASEURL +'/api/shopping_cart/',
       data: JSON.stringify({
         id: id,
         token: token

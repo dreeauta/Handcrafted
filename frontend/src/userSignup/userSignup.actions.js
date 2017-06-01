@@ -17,7 +17,7 @@ export function submit(username, firstname, lastname, email, password, user_imag
       let asyncAction = function(dispatch) {
         $.ajax({
           method: 'POST',
-          url: '${BASEURL}/api/user/signup',
+          url: BASEURL +'/api/user/signup',
           data: JSON.stringify({
             username: username,
             password: password,

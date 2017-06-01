@@ -26,7 +26,7 @@ export function fetchEvents(title){
   let asyncAction = function(dispatch) {
     $.ajax({
       method:'GET',
-      url: '${BASEURL}/api/events'
+      url: BASEURL +'/api/events'
     })
     .then(data => dispatch(displayEvents(data)))
     .catch(resp => dispatch(pageError(resp)))

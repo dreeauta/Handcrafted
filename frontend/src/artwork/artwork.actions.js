@@ -31,7 +31,7 @@ export function fetchArtCover(/*title*/){
   let asyncAction = function(dispatch) {
     $.ajax({
       method:'GET',
-      url: '${BASEURL}:4000/api/artwork'
+      url: BASEURL +'/api/artwork'
     })
     .then(data => dispatch(displayArtCover(data)))
     .catch(resp => dispatch(pageError(resp)))

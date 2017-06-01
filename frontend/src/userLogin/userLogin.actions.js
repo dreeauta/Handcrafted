@@ -26,7 +26,7 @@ export function logout() {
 export function submitLogin(username, password) {
   let asyncAction = (dispatch) => {
     $.ajax({
-      url: '${BASEURL}/api/user/login',
+      url: BASEURL +'/api/user/login',
       method: 'POST',
       data: JSON.stringify({
         username: username,

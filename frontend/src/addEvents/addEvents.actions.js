@@ -17,7 +17,7 @@ export function submitEvents(name, description, location, date, time, image, lin
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: '${BASEURL}/api/events',
+      url: BASEURL+'/api/events',
       data: JSON.stringify({
         name: name,
         description: description,
