@@ -1,4 +1,8 @@
 import $ from 'jquery';
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 export function displayArtworkDetail(data) {
   console.log(data);
@@ -21,7 +25,7 @@ export function fetchArtworkDetail(id) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:4000/api/artwork/' + id.toString(),
+      url: '${BASEURL}/api/artwork/' + id.toString(),
       dataType: 'json'
     })
     .then(data => dispatch(displayArtworkDetail(data)))

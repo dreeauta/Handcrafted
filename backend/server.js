@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const stripePackage = require('stripe');
 const stripe = require("stripe")("sk_test_EElhhlSdMzy3X57xSDruteG7");
 
+
 const pgp = require('pg-promise')(
   {
     promiseLib: Promise
@@ -14,9 +15,11 @@ const pgp = require('pg-promise')(
 const bcrypt = require('bcrypt');
 const uuid = (require('uuid'));
 
-const db = pgp({
-  database: 'art_db'
-});
+const config = require('./config.js');
+const db = pgp(config);
+// const db = pgp({
+//   database: 'art_db'
+// });
 
 const app = express();
 

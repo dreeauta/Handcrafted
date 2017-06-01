@@ -1,4 +1,8 @@
 import $ from 'jquery';
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 export function displayArtCover(data){
   return {
@@ -27,7 +31,7 @@ export function fetchArtCover(/*title*/){
   let asyncAction = function(dispatch) {
     $.ajax({
       method:'GET',
-      url: 'http://localhost:4000/api/artwork'
+      url: '${BASEURL}:4000/api/artwork'
     })
     .then(data => dispatch(displayArtCover(data)))
     .catch(resp => dispatch(pageError(resp)))

@@ -1,5 +1,8 @@
 import $ from 'jquery';
-
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 
 
@@ -15,7 +18,7 @@ export function pageError(resp){
 export function getShoppingCart(token) {
   console.log('token': token);
   return (dispatch) => {
-    $.get('http://localhost:4000/api/shopping_cart', { token: token })
+    $.get('${BASEURL}/api/shopping_cart', { token: token })
       .then(data => {
         dispatch({
           type: 'shopping-cart',
@@ -38,7 +41,7 @@ export function deleteItem(id, token) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'DELETE',
-      url: 'http://localhost:4000/api/shopping_cart/',
+      url: '${BASEURL}/api/shopping_cart/',
       data: JSON.stringify({
         id: id,
         token: token

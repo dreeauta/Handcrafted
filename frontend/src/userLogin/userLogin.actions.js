@@ -1,5 +1,9 @@
 import $ from 'jquery';
 import { hashHistory } from 'react-router';
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 
 export function loginChange(data, propName){
@@ -22,7 +26,7 @@ export function logout() {
 export function submitLogin(username, password) {
   let asyncAction = (dispatch) => {
     $.ajax({
-      url: 'http://localhost:4000/api/user/login',
+      url: '${BASEURL}/api/user/login',
       method: 'POST',
       data: JSON.stringify({
         username: username,

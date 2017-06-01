@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import {hashHistory} from 'react-router';
-
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 export function displayartworkItem(data) {
   return {
@@ -21,7 +24,7 @@ export function fetchartworkItem(id) {
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:4000/api/artworkItem/' + id
+      url: '${BASEURL}/api/artworkItem/' + id
     })
     .then(data => dispatch(displayartworkItem(data)))
     .catch(resp => dispatch(pageError(resp)))
@@ -33,7 +36,7 @@ export function addToCart(id, token) {
   return function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:4000/api/shopping_cart/',
+      url: '${BASEURL}/api/shopping_cart/',
       data: JSON.stringify({
         id: id,
         token: token

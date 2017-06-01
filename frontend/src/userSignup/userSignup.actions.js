@@ -1,4 +1,8 @@
 import $ from 'jquery';
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 
 export function onChange(data, propName) {
@@ -13,7 +17,7 @@ export function submit(username, firstname, lastname, email, password, user_imag
       let asyncAction = function(dispatch) {
         $.ajax({
           method: 'POST',
-          url: 'http://localhost:4000/api/user/signup',
+          url: '${BASEURL}/api/user/signup',
           data: JSON.stringify({
             username: username,
             password: password,

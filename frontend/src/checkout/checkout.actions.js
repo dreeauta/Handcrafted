@@ -1,5 +1,9 @@
 import $ from 'jquery';
 import { hashHistory } from 'react-router';
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 export function onChangePurchase(data, propName){
   return {
@@ -22,7 +26,7 @@ export function submitPurchaseInfo(customer_id, total_price, address, address2, 
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:4000/api/checkout',
+      url: '${BASEURL}/api/checkout',
       data: JSON.stringify({
         customer_id: customer_id,
         total_price: total_price,
@@ -65,7 +69,7 @@ export function creditcard(amount, token) {
             token: function callback(stripeToken) {
               $.ajax({
                   type: 'POST',
-                  url: 'http://localhost:4000/api/ccinfo',
+                  url: '${BASEURL}/api/ccinfo',
                   contentType: 'application/json',
                   data: JSON.stringify({
                       stripeToken: stripeToken.id,

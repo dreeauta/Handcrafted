@@ -1,6 +1,9 @@
 import $ from 'jquery';
 let cloudinary = window.cloudinary
-
+let BASEURL = "http://locahost:3000";
+if (window.location.hostname !== 'localhost') {
+  BASEURL = "";
+}
 
 export function onChangeEvents(data, propName) {
   return{
@@ -14,7 +17,7 @@ export function submitEvents(name, description, location, date, time, image, lin
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:4000/api/events',
+      url: '${BASEURL}/api/events',
       data: JSON.stringify({
         name: name,
         description: description,
