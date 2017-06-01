@@ -58,9 +58,19 @@ class checkoutCart extends React.Component {
       <input type="text" onChange={event =>
       this.props.onChangePurchase(event.target.value,'zip')}/>
       <br/>
+      <label> email: </label>
+      <br/>
+      <input type="text" onChange={event =>
+      this.props.onChangePurchase(event.target.value,'email')}/>
+      <br/>
 
+      <button onClick={() => this.props.creditcart(this.props.checkout.total, this.props.login.token, this.props.checkout.email)}>
+      Confirm
+
+      </button>
       <Link to={"/confirmation"}>
-      <button onClick={() => this.props.submitPurchase(this.props.login, total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip)}>
+      <button onClick={() => this.props.submitPurchase(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
+      this.props.checkout.email)}>
       Confirm
       </button>
       </Link>

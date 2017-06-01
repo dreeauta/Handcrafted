@@ -20,8 +20,7 @@ export function submit(username, firstname, lastname, email, password, user_imag
             first_name: firstname,
             last_name: lastname,
             email: email,
-            user_image: user_image,
-
+            user_image: user_image
           }),
           contentType: 'application/json'
         })

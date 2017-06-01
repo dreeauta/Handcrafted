@@ -27,8 +27,13 @@ import artworkDetailContainer from './artworkDetail/artworkDetail';
 import artworkDetailReducer from './artworkDetail/artworkDetail.reducer';
 import artworkItemContainer from './artworkItem/artworkItem';
 import artworkItemReducer from './artworkItem/artworkItem.reducer';
-import artistSignupContainer from './artistSignup/artistSignup';
+import artistSignupFormContainer from './artistSignup/artistSignup';
 import artistSignupReducer from './artistSignup/artistSignup.reducer';
+import artistProfileContainer from './artistProfile/artistProfile';
+import artistProfileReducer from './artistProfile/artistProfile.reducer';
+import forumReducer from './forum/forum.reducer';
+import forumContainer from './forum/forum.reducer';
+
 
 import checkoutContainer from './checkout/checkout';
 import checkoutReducer from './checkout/checkout.reducer';
@@ -59,6 +64,8 @@ const reducer= Redux.combineReducers({
   events: eventsReducer,
   eventsadd: addEventsReducer,
   artistsignup: artistSignupReducer,
+  artistProfile : artistProfileReducer,
+  forum: forumReducer,
   burgerMenu
 });
 
@@ -76,21 +83,20 @@ class AppLayout extends React.Component {
   render() {
 
 
-{/*
-    let menubaroptions = this.props.login.token ? (
+    let menubaroptions = this.props.login && this.props.login.token ? (
 
       <div className="navbar">
 
       <IndexLink to="/" activeClassName="active">
       Home </IndexLink>
-      <Link to="/SignOut" activeClassName="active">
-      SignOut </Link>
+      <a href="#" onClick={this.props.signOut}>
+      SignOut </a>
 
       <Link to="/Cart" activeClassName="active">
       Cart </Link>
-      <Link to="/Events" activeClassName="active">
-      Events </Link>
       </div>
+
+
  ) : (
       <div className="navbar">
 
@@ -105,21 +111,14 @@ class AppLayout extends React.Component {
 
       </div>
   )
-  */}
+
 
     return (
       <div>
 
       <div className="navbar">
 
-      <IndexLink to="/" activeClassName="active">
-      Home </IndexLink>
-      <Link to="/Login" activeClassName= "active">
-      Login </Link>
-      <Link to="/SignUp" activeClassName="active">
-      SignUp </Link>
-      <Link to="/Cart" activeClassName="active">
-      Cart </Link>
+      { menubaroptions }
 
       </div>
 
@@ -142,6 +141,11 @@ class AppLayout extends React.Component {
       <img src="./home/addeventsicon.png"/> Add an Event
       </Link>
       <br/>
+      <Link to="/forum" activeClassName="active">
+      <img src="./home/addeventsicon.png"/> Forum
+      </Link>
+      <br/>
+
       <Link to="/about" activeClassName="active">
       <img src="./home/abouticon.png"/> About
       </Link>
@@ -160,10 +164,22 @@ class AppLayout extends React.Component {
     }
   }
 
+  const AppLayoutContainer = ReactRedux.connect(
+    state => state,
+    //  reducer applayout
+    { signOut: function signOut() {
+      return {
+        type: 'logout'
+          }
+        }
+      }
+  )(AppLayout);
+
+
   ReactDOM.render(
     <ReactRedux.Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={AppLayout}>
+        <Route path="/" component={AppLayoutContainer}>
         <IndexRoute component={homeContainer}/>
         <Route path="/Login" component={userLoginContainer}/>
         <Route path="/SignUp" component={userSignupContainer}/>
@@ -173,7 +189,13 @@ class AppLayout extends React.Component {
         <Route path="/artwork/:id" component={artworkDetailContainer}/>
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/artist_signup"
-        component={artistSignupContainer}/>
+        component={artistSignupFormContainer}/>
+        <Route path="/artistProfile"
+        component={artistProfileContainer}/>
+
+        <Route path="/forum"
+        component={forumContainer}/>
+
         <Route path="/events" component={eventsContainer}/>
         <Route path="/addevents" component={addEventsContainer}/>
         <Route path="/about" component={aboutContainer}/>

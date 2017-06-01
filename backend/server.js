@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Promise = require('bluebird');
+const stripePackage = require('stripe');
+const stripe = require("stripe")("sk_test_EElhhlSdMzy3X57xSDruteG7");
 
 const pgp = require('pg-promise')(
   {
@@ -188,22 +190,34 @@ app.post('/api/user/login', (req, res, next) => {
         auth_token: loginSession.token,
         customer_id: customer.id
       });
-    });
+    })
+    .catch(next);
   });
 
-app.use (function Authenticate(req, res, next) {
-  let token = req.query.token || req.body.token;
-  db.one('select * from login_session where token = $1', [token])
-  .then(data => {
-    req.user = data;
-    next();
-  })
-  .catch(err => {
-    res.status(403)
-    res.send('Unauthorized user')
-  }
-  );
-});
+function respondUnauthorized(resp) {
+  resp.status(403);
+  resp.json({
+    message: 'Unauthorized'
+  });
+}
+
+app.use(function Authenticate(req, resp, next) {
+    let token = req.query.token || req.body.token;
+    if (!token) {
+      respondUnauthorized(resp);
+      return;
+    }
+    db.oneOrNone(`select * from login_session where token = $1`, token)
+      .then(loginSession => {
+        if (!loginSession) {
+          respondUnauthorized(resp);
+          return;
+        }
+        req.loginSession = loginSession;
+        next();
+      })
+      .catch(next);
+  });
 
 
 app.post('/api/shopping_cart', (req, res, next) => {
@@ -212,7 +226,7 @@ app.post('/api/shopping_cart', (req, res, next) => {
 
   // db.any('select * from login_session where customer_id = $1', [req.user.customer_id])
 
-  db.one(`insert into product_in_shopping_cart values (default, $1, $2) returning product_id, customer_id `,
+  db.one(`insert into product_in_shopping_cart values (default, $1, $2) returning * `,
   [data.id,
   req.user.customer_id]
  )
@@ -233,7 +247,9 @@ app.delete('/api/delete_item_from_cart', (req, res, next) => {
 
 app.get('/api/shopping_cart', (req, res, next) => {
   let data = req.body;
-  db.any('select * from product_in_shopping_cart as pisc join product as p on (pisc.product_id = p.id) where customer_id = $1 ', [req.user.customer_id])
+  let customerId = req.loginSession.customer_id;
+
+  db.any('select * from product_in_shopping_cart as pisc join product as p on (pisc.product_id = p.id) where customer_id = $1 ', customerId)
   .then(data => res.json(data))
   .catch(next);
 });
@@ -241,10 +257,92 @@ app.get('/api/shopping_cart', (req, res, next) => {
 
 app.post('/api/checkout', (req, res, next) => {
   let data = req.body;
-  db.one(`insert into purchase values (default, $1, $2, $3, $4, $5, $6) returning customer_id, total_price, address, address2, city, zipcode`, [req.user.customer_id, data.total_price, data.address, data.address2, data.city, data.zipcode])
-  .then(data => res.json(data))
+  db.one(`insert into purchase values (default, $1, $2, $3, $4, $5, $6, $7) returning customer_id, total_price, address, address2, city, zipcode, email`, [req.user.customer_id, data.total_price, data.address, data.address2, data.city, data.zipcode, data.email])
+  .then(results => {
+      return db.none(`delete from shopping_cart where customer_id = $1`, results.customer_id)
+  })
+  .then(()=> {
+      resp.json({message: "purchase successful"});
+  })
+  .catch((error) => {
+      if (error.message === 'No data returned from the query.') {
+          resp.status(401);
+          resp.json({message: "User not authenticated"});
+      } else {
+          throw error;
+      }
+  })
   .catch(next);
 });
+
+// Checkout
+// app.post('/api/checkout', (req, resp, next) => {
+//     let token = req.body.token;
+//     db.one(`select user_id from tokens join users on tokens.user_id = users.id and tokens.token = $1`, token)
+//         .then(results => {
+//             return [results, db.any(`select product_id from products inner join shopping_cart on shopping_cart.product_id = products.id where shopping_cart.user_id = $1`, results.user_id)]
+//         })
+//         .spread((results, items) => {
+//             if (items.length === 0) {
+//                 resp.json({message: "No items in user's shopping cart."});
+//             } else {
+//                 return [results, items, db.one(`insert into purchases values (default, $1) returning id`, parseInt(results.user_id))]
+//             }
+//         })
+//         .spread((results, items, purchase) => {
+//             items.forEach(item => {
+//                 db.none(`insert into products_purchases values (default, $1, $2)`, [purchase.id, item.product_id])
+//             })
+//             return results;
+//         })
+//         .then(results => {
+//             return db.none(`delete from shopping_cart where user_id = $1`, results.user_id)
+//         })
+//         .then(()=> {
+//             resp.json({message: "purchase successful"});
+//         })
+//         .catch((error) => {
+//             if (error.message === 'No data returned from the query.') {
+//                 resp.status(401);
+//                 resp.json({message: "User not authenticated"});
+//             } else {
+//                 throw error;
+//             }
+//         })
+//         .catch(next)
+// })
+
+// Click Submit payment button
+app.post('/api/ccinfo', (req, resp, next) => {
+    let stripeToken = req.body.stripeToken;
+    let email = req.body.email;
+    let amount = req.body.amount;
+    stripe.customers.create({
+            email: email
+        })
+        .then(customer => {
+            return stripe.customers.createSource(customer.id, {
+                source: stripeToken
+            });
+        })
+        .then(source => {
+            return stripe.charges.create({
+                amount: amount,
+                currency: 'usd',
+                customer: source.customer,
+                description: 'Test Charge'
+            });
+        })
+        .then(charge => {
+            console.log(charge);
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+    resp.json({message: "purchase successful"});
+})
+
+
 
 app.use((err, req,resp, next) => {
   resp.status(500);

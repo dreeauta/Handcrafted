@@ -8,6 +8,12 @@ class artworkDetail extends React.Component {
     this.props.fetchArtworkDetail(this.props.router.params.id);
   }
 
+  componentWillReceiveProps(newProps) {
+  if (this.props.router.params.id !== newProps.router.params.id) {
+    let id = newProps.router.params.id;
+    this.props.fetchArtworkDetail(id);
+  }
+}
 
 render() {
 

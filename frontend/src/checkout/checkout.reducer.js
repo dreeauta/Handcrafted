@@ -4,7 +4,9 @@ const INITIAL_STATE = {
   address2:"",
   city: "",
   zip: "",
-  token: ""
+  email: "",
+  token: "",
+  total: ""
 }
 
 export default function reducer( state = INITIAL_STATE, action) {
@@ -13,8 +15,8 @@ export default function reducer( state = INITIAL_STATE, action) {
       [action.name]: action.payload
     })
   }
-
     else if (action.type === 'submitPurchase'){
   }
+
   return state;
 }

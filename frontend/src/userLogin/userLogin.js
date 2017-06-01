@@ -18,9 +18,14 @@ class userLogin extends React.Component {
 
 render() {
   // console.log(this.props);
+  let loginerror;
+  if (this.props.loginerror){
+    <p> "Username and password incorrect, please try again!" </p>
+  }
 
 
   return (
+
     <div className="background-div">
 <span className="login-title"> Login  </span>
     <br/>
@@ -37,10 +42,9 @@ render() {
     <input type="password" onChange={event => this.props.loginChange(event.target.value, 'password')}/>
   <br/>
   <br/>
-<Link to={"/"}>   <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Login </button> </Link>
+  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Login </button>
 <br/>
   </div>
-{/*  <Link to={"/SignUp"}>  <button> SignUp </button> </Link> */}
 
 <img className="tree-gif" src="./tree.gif"/>
 

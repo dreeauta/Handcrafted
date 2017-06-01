@@ -30,7 +30,7 @@ export function fetchartworkItem(id) {
 }
 
 export function addToCart(id, token) {
-  let asyncAction = function(dispatch) {
+  return function(dispatch) {
     $.ajax({
       method: 'POST',
       url: 'http://localhost:4000/api/shopping_cart/',
@@ -40,10 +40,13 @@ export function addToCart(id, token) {
       }),
       contentType: 'application/json'
     })
-    .then(data => dispatch({type: 'addToCart', payload: data}))
-    .catch(resp => dispatch(pageError(resp)))
-
-  }
-  return asyncAction
-
+    .then(data => dispatch({type: 'add-to-cart-success', payload: data}))
+    .catch(resp => {
+      let error = resp.responseJSON && resp.responseJSON.message || 'Did not work';
+      dispatch({
+        type: 'add-to-cart-error',
+        error: error
+      });
+    })
+  };
 }
