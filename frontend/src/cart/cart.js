@@ -19,6 +19,8 @@ class shoppingCart extends React.Component {
 
   render() {
 
+
+
     let cartcheckout;
 
     if (this.props.items_in_cart) {
@@ -50,8 +52,7 @@ class shoppingCart extends React.Component {
       <span className="cart-description"> { input.description }
 
       <br/> ${ input.price } </span>
-    <button onClick={() => this.props.deleteItem(this.props.cart_items.id, this.props.token)}> Delete Item </button>
-
+    <button onClick={() => this.props.deletetheItem(this.props.cart_items[idx].product_id, this.props.token)}> Delete Item </button>
     </p>
 
       )}

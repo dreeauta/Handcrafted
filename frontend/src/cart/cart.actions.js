@@ -4,6 +4,9 @@ if (window.location.hostname !== 'localhost') {
   BASEURL = '';
 }
 
+import { hashHistory } from 'react-router';
+
+
 
 
 
@@ -36,8 +39,13 @@ export function getShoppingCart(token) {
   };
 }
 
+function deleteItem(data){
+  return {type: 'deleteItem',
+      payload: data
+  }
+}
 
-export function deleteItem(id, token) {
+export function deletetheItem(id, token) {
   console.log(id)
   let asyncAction = function(dispatch) {
     $.ajax({
@@ -49,7 +57,7 @@ export function deleteItem(id, token) {
       }),
       contentType: 'application/json'
     })
-      .then(data => dispatch({ type: 'deleteItem', payload: data}))
+      .then(data => dispatch(deleteItem(data)))
       .catch(resp => dispatch(pageError(resp)))
   }
   return asyncAction
