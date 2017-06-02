@@ -17,6 +17,7 @@ const uuid = (require('uuid'));
 
 const config = require('./config.js');
 const db = pgp(config);
+
 // const db = pgp({
 //   database: 'art_db'
 // });
