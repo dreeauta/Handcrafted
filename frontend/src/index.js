@@ -78,7 +78,7 @@ const store = Redux.createStore(
 );
 
 
-persistStore(store, { storage: new CookieStorage() })
+persistStore(store)
 
 
 class AppLayout extends React.Component {
@@ -139,7 +139,7 @@ class AppLayout extends React.Component {
       <Link to="/addevents" activeClassName="active">
       <img src="./home/addeventsicon.png"/> Add Event
       </Link>
-    
+
       <br/>
 
       <Link to="/about" activeClassName="active">

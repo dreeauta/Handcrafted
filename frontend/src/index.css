@@ -19,6 +19,7 @@ button:hover {
   font-size: 1.2em;
   word-spacing: 2vw;
   position: fixed;
+  top: 3vh;
   left: 60vw;
   background:rgba(255,255,255, 0.7);
   padding-left: 2vw;
@@ -75,9 +76,10 @@ top: 10vh;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   color: black;
-  margin-top: 2vh;
+  margin-top: 3vh;
   margin-left: 2vw;
   filter: invert(100%);
+  font-size: 1.2em;
 }
 
 .category-nav img {
@@ -107,8 +109,8 @@ top: 10vh;
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 5px;
-  width: 5px;
+  height: 5vw;
+  width: 5vh;
 }
 
 /* Color/shape of close button cross */
@@ -124,6 +126,9 @@ top: 10vh;
   font-size: 1.15em;
   overflow-y: hidden;
   height: auto;
+  position: fixed;
+  top: 0;
+  width: 24vw;
 
 }
 
