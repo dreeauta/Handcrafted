@@ -19,38 +19,49 @@ class shoppingCart extends React.Component {
 
   render() {
 
+    let cartcheckout;
+
+    if (this.props.items_in_cart) {
+    cartcheckout =  <span className="cart-checkout">
+
+      <Link to="/checkout">  <button> Checkout </button></Link>
+
+      </span>
+
+    }
+    else {
+      cartcheckout = <p className="cart-checkout">
+      Shopping Cart is Empty!
+      </p>
+
+    }
+
     return(
       <div className="cart-div">
       <span className="cart-title">
       Shopping Cart
       </span>
 
-      <table>
-      <th className="cart-img">
-
-
-      <span className="cart-delete">
-      </span>
-      </th>
-      </table>
-
 
       { this.props.cart_items.map((input, idx) =>
-    <p key={idx}> <img src={input.image_path}/> <br/>
-    { input.price }
-    <button onClick={() => this.props.deleteItem(this.props.cart_items.id, this.props.token)}> Delete Item </button>
+    <p className="cart-display" key={idx}> <Link to={"/artworkItem/"+ input.id}> <img className="cart-image" src={input.image_path}/>
+    </Link>
+     <br/>
+      <span className="cart-description"> { input.description }
 
+      <br/> ${ input.price } </span>
+    <button onClick={() => this.props.deleteItem(this.props.cart_items.id, this.props.token)}> Delete Item </button>
 
     </p>
 
       )}
 
-    <span className="cart-checkout">
+      <span className="cart-delete">
+      </span>
 
-    <Link to="/checkout">  <button> Checkout </button></Link>
 
-    </span>
 
+  { cartcheckout }
       </div>
 
     );

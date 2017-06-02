@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   lastname: "",
   email: "",
   token: "",
-  loginerror: ""
+  loginerror: false
 };
 
 
@@ -28,7 +28,7 @@ export default function reducer(state = INITIAL_STATE, action) {
   }
   else if (action.type === "loginerror"){
     return Object.assign({}, state, {
-      loginerror: action.payload
+      loginerror: true
     })
   }
   else if (action.type === 'logout') {

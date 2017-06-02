@@ -12,15 +12,17 @@ button:hover {
 }
 
 
+
 .navbar {
   font-family: 'Poppins', sans-serif;
-  z-index: 1000;
+  z-index: 0;
   font-size: 1.2em;
   word-spacing: 2vw;
   position: fixed;
   left: 60vw;
-  background:rgba(255,255,255, 0.2);
+  background:rgba(255,255,255, 0.7);
   padding-left: 2vw;
+  z-index: 2000;
 }
 
 .navbar a{
@@ -160,7 +162,7 @@ top: 10vh;
 }
 
 .artcover-background {
-  width: 300vw;
+  width: 200vw;
 }
 
 .artCover img{
@@ -332,6 +334,10 @@ top: 10vh;
 
 /*login and signup page*/
 
+.login-div {
+  font-family: 'Poppins', sans-serif;
+}
+
 .login-title {
   position: relative;
   left: 30vw;
@@ -443,54 +449,86 @@ input:focus {
 /*shopping cart*/
 
 .cart-title{
-  position: absolute;
-  left: 25vw;
-  top: 10vh;
+  position: relative;
+  left: 22vw;
+  top: 8vh;
   width: 30vw;
   font-size: 3.0em;
   font-family: 'Barrio', cursive;
-
+  z-index: 1000;
 }
 
-.cart-div table {
+.cart-div{
+  width:100vw;
+  height:100vh;
+  overflow-x: hidden;
+}
+
+
+
+.cart-display {
   position: relative;
-  left: 13vw;
-  top: 10vh;
+  left: 9vw;
+  top: 15vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.2em;
+  /*background:rgba(200,200,200, 0.4);*/
+
+  z-index: 1000;
+  padding-left: 6vw;
+  padding-top: 6vh;
+  width: 75vw;
+  border: 1px solid black;
 }
 
-.cart-div th{
-  padding-right: 10vw;
-
-}
-
-.cart-img {
+.cart-description {
   position: relative;
-  top: 16vh;
+  left: 30vw;
+  bottom: 20vh;
+  text-align: center;
+}
+
+
+.cart-image {
+  position: relative;
+  top: 4vh;
   width: 20vw;
 }
 
-.cart-delete button {
+.cart-display button {
   position: relative;
   width: 10vw;
+  left: 56vw;
   height: 8vh;
-  bottom: 1vh;
+  bottom: 25vh;
   font-family: 'Poppins', sans-serif;
   font-size: .6em;
   letter-spacing: .3em;
+  background: black;
+  color: white;
+
 }
 
-.cart-checkout button {
+.cart-checkout button  {
   position: relative;
   width: 15vw;
-  height: auto;
-  left: 40vw;
+  height: 10vh;
+  left: 30vw;
   top: 30vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.0em;
   letter-spacing: .3em;
-  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.cart-checkout   {
+  position: relative;
+  height: 10vh;
+  left: 35vw;
+  top: 30vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.0em;
+  letter-spacing: .3em;
   margin-bottom: 10vh;
 }
 
@@ -501,28 +539,44 @@ input:focus {
   width: 100vw;
   height: 100vh;
 }
+
 .checkout-title {
   position: relative;
   left: 25vw;
   top: 3vh;
   font-size: 3.1em;
   font-family: 'Barrio', cursive;
+  color: black;
+
 }
 
 .checkout-image {
   width: 7vw;
+
 }
 
 .checkout-name{
   position: relative;
   bottom: 4vh;
-  left: 2vw;
+  left: 4vw;
+
 }
 
 .checkout-price{
   position: relative;
   bottom: 4vh;
-  left: 5vw;
+  left: 8vw;
+
+}
+
+.checkout-form {
+  background-color: black;
+  color: white;
+  position: relative;
+  top: 10vh;
+  height: 100vh;
+  width: 45vw;
+  left: 6vw;
 
 }
 
@@ -533,41 +587,42 @@ input:focus {
 .checkout-form input{
   position: relative;
   top: 7vh;
-  left: 14vw;
+  left: 12vw;
   width: 30vw;
   padding: 8px 16px;
     margin: 8px 0;
     box-sizing: border-box;
     font-size: 1.0em;
     font-family: 'Poppins', sans-serif;
+
 }
 
 
 .checkout-form label{
   position: relative;
   top: 7vh;
-  left: 14vw;
+  left: 12vw;
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
 
 }
 
 .checkout-items {
-  border: 1px solid black;
-  width: 40vw;
-  height: 40vh;
+  width: 37vw;
+  height: auto;
   position: relative;
-  left: 53vw;
-  bottom: 62vh;
+  left: 55vw;
+  bottom: 85vh;
   padding: 3vh;
   font-family: 'Poppins', sans-serif;
-
+  background:rgba(255,255,255, 0.7);
+  border: 1px solid black;
 }
 
 .checkout-total {
   position: relative;
   left: 83vw;
-  bottom: 67vh;
+  bottom: 90vh;
   font-family: 'Poppins', sans-serif;
 
 }
@@ -581,17 +636,19 @@ input:focus {
   font-family: 'Poppins', sans-serif;
   font-size: .8em;
   letter-spacing: .3em;
+
 }
 
-.checkout-confirm button {
+.checkout-confirm  {
   position: relative;
-  left: 60vw;
-  width: 20vw;
-  height: 7vh;
+  width: 15vw;
+  height: 10vh;
+  left: 40vw;
+  top: 5vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.0em;
-  bottom: 50vh;
   letter-spacing: .3em;
+  margin-bottom: 10vh;
 }
 
 
@@ -606,10 +663,12 @@ input:focus {
   font-family: 'Barrio', cursive;
 }
 
-.addevents-div {
+.addevent-div {
     width:  100vw;
     height: 100vh;
-    overflow-y: hidden;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .event-tree-gif {
@@ -619,6 +678,8 @@ input:focus {
   z-index: 0;
   width: 40vw;
 }
+
+
 
 .event-form input{
   position: relative;
@@ -643,7 +704,7 @@ input:focus {
 
 .event-form2 input{
   position: relative;
-  bottom: 20vh;
+  bottom: 21vh;
   left: 40vw;
   width: 25vw;
   padding: 5px 10px;
@@ -687,32 +748,50 @@ input:focus {
 
 /*event section*/
 
-.event-title {
-  position: absolute;
-  left: 26vw;
-  top: 10vh;
-  width: 30vw;
-  font-size: 3.0em;
-  font-family: 'Barrio', cursive;
+.event-div {
 }
 
-.event-name {
-  padding-top: 10vh;
+.event-title{
+  position: fixed;
+  left: 70vw;
+  top: 39vh;
+  font-size: 4.0em;
+  font-family: 'Barrio', cursive;
+  color: white;
+  background: black;
+  padding: 2vw;
+}
+
+.event-box {
+  text-align: center;
+  border: 1px solid black;
+  color: black;
+  width: 50vw;
+  position: relative;
+  left: 10vw;
+  top:5vh;
+  padding-top: 1vh;
+  padding-bottom: 3vh;
+  margin-top: 10vh;
   font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+
+
+
+.event-name {
+  text-align: center;
+  margin-top: 4vh;
+
 }
 
 .event-image {
   display: inline-block;
   position: relative;
-  width: 40vw;
-}
-
-.event-info {
-  position: relative;
-  top: 18vh;
-  left: 15vw;
-  width: 40vw;
-
+  width: 40vw
 }
 
 .event-description {
@@ -731,16 +810,75 @@ input:focus {
   font-size: 1.2em;
 }
 
-.event-link {
-  font-family: 'Poppins', sans-serif;
-
-}
 
 /*about section*/
-.tree-background-about {
-  position: relative;
-  left: 53vw;
-  bottom: 3vh;
-  z-index: 0;
 
+.about-div{
+overflow: hidden;
+}
+
+
+.about-title{
+  position: fixed;
+  left: 62vw;
+  top: 39vh;
+  font-size: 3.5em;
+  font-family: 'Barrio', cursive;
+  background:rgba(255,255,255, 0.7);
+  padding: 2vw;
+  text-align: center;
+  color: black;
+}
+
+
+.about-background {
+  width:100vw;
+  height: 100vh;
+}
+
+.about-box {
+  position: absolute;
+  background:rgba(255,255,255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  top: 27vh;
+  left: 10vw;
+  width: 40vw;
+  height: 50vh;
+  font-size: 1.0em;
+}
+
+.about-content {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  width: 30vw;
+}
+
+.about-div a{
+  color: black;
+  text-decoration: none;
+  margin-left: 2vw;
+}
+
+
+/*confirmation page*/
+.confirmation-div {
+  overflow: hidden;
+}
+.confirmation-div img {
+  width: 100vw;
+  height: 100vh;
+}
+
+.confirmation-message {
+  position: absolute;
+  background:rgba(255,255,255, 0.7);
+  font-family: 'Barrio', cursive;
+  top: 33vh;
+  left: 20vw;
+  width: 50vw;
+  height: 30vh;
+  font-size: 4em;
+  padding-left: 10vw;
+  padding-top: 4vh;
 }

@@ -32,6 +32,8 @@ import artistSignupFormContainer from './artistSignup/artistSignup';
 import artistSignupReducer from './artistSignup/artistSignup.reducer';
 import artistProfileContainer from './artistProfile/artistProfile';
 import artistProfileReducer from './artistProfile/artistProfile.reducer';
+import confirmationContainer from './confirmation';
+
 // import forumReducer from './forum/forum.reducer';
 // import forumContainer from './forum/forum.reducer';
 
@@ -137,10 +139,7 @@ class AppLayout extends React.Component {
       <Link to="/addevents" activeClassName="active">
       <img src="./home/addeventsicon.png"/> Add Event
       </Link>
-      <br/>
-      <Link to="/forum" activeClassName="active">
-      <img src="./home/addeventsicon.png"/> Forum
-      </Link>
+    
       <br/>
 
       <Link to="/about" activeClassName="active">
@@ -187,6 +186,8 @@ class AppLayout extends React.Component {
         <Route path="/artworkitem/:id" component={artworkItemContainer}/>
         <Route path="/artist_signup"
         component={artistSignupFormContainer}/>
+        <Route path="/confirmation"
+        component={confirmationContainer}/>
 
 
         <Route path="/events" component={eventsContainer}/>

@@ -12,7 +12,7 @@ class checkoutCart extends React.Component {
 
     if (this.props.cart_item) {
       this.props.cart_items.map(input =>
-      total = input.price++)
+      total += input.price)
     }
 
 
@@ -22,6 +22,7 @@ class checkoutCart extends React.Component {
 <span className="checkout-title">
   Checkout
 </span>
+
 
     <div className="checkout-form">
       <label> Name: </label>
@@ -55,7 +56,7 @@ class checkoutCart extends React.Component {
       <input type="text" onChange={event =>
       this.props.onChangePurchase(event.target.value,'zip')}/>
       <br/>
-      <label> email: </label>
+      <label> Email: </label>
       <br/>
       <input type="text" onChange={event =>
       this.props.onChangePurchase(event.target.value,'email')}/>
@@ -85,14 +86,12 @@ class checkoutCart extends React.Component {
 
       <br/>
 
-      <span className="checkout-confirm">
       <Link to={"/confirmation"}>
-      <button onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
+      <button className="checkout-confirm" onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
       this.props.checkout.email)}>
       Confirm Purchase
       </button>
       </Link>
-      </span>
 
 
       </div>

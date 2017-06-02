@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   city: "",
   zip: "",
   token: "",
-  total: ""
+  total: "",
+  checkout_complete: false
 }
 
 export default function reducer( state = INITIAL_STATE, action) {
@@ -15,7 +16,9 @@ export default function reducer( state = INITIAL_STATE, action) {
     })
   }
     else if (action.type === 'submitPurchase'){
-  }
-
+      return Object.assign({}, state, {
+        checkout_complete: true
+      })
+    }
   return state;
 }

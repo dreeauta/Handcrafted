@@ -9,9 +9,14 @@ class addEvents extends React.Component {
 
 render() {
 
+let event_added;
+
+if (this.props.events.event_added){
+  event_added = <p> Event Added! </p>
+}
 
   return (
-    <div className="addevents">
+    <div className="addevent-div">
 
     <span className="addevent-title">
       Add Event
@@ -77,6 +82,7 @@ render() {
       this.props.eventsadd.date, this.props.eventsadd.time,
       this.props.eventsadd.image, this.props.eventsadd.link)}> Add Event </button>
     </span>
+    <br/> {event_added}
     </div>
 
       <img className="event-tree-gif" src="./tree.gif"/>

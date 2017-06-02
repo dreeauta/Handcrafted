@@ -20,13 +20,13 @@ render() {
   // console.log(this.props);
   let loginerror;
   if (this.props.loginerror){
-    <p> "Username and password incorrect, please try again!" </p>
+    loginerror = <p> "Username and password incorrect, please try again!" </p>
   }
 
 
   return (
 
-    <div className="background-div">
+    <div className="login-div">
 <span className="login-title"> Login  </span>
     <br/>
 
@@ -44,6 +44,8 @@ render() {
   <br/>
   <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
 <br/>
+<br/>
+{ loginerror }
   </div>
 
 <img className="login-tree-gif" src="./tree.gif"/>

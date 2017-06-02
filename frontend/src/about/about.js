@@ -9,17 +9,32 @@ export default class about extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="about-div">
 
-      <img src="./about/about-title.png"/>
+      <span className="about-title">
+        ABOUT <br/> HANDCRAFTED
+      </span>
+
+      <img className="about-background" src="./about/backgroundimage.jpg"/>
 
 
+      <div className="about-box">
+      <p className="about-content">
+      Bringing together the talent of Atlanta on one page.
       <br/>
-<p>
-      Bringing together the talent of Atlanta on one page. Shop local.
+      <br/>
+      Handcrafted provides a space for Atlanta artists and makers to sell and buy art. Also stay up to date on the latest art events and shows.
+      <br/>
+      <br/>
+      Shop local.
+      <br/>
+      <br/>
+      -Andreea Uta
+      <br/>
+      <a href="https://github.com/dreeauta/art-app"> GitHub </a>
+
       </p>
-      <br/>
-      <img className="tree-background-about" src="./tree-background.jpg"/>
+      </div>
 
 
       </div>

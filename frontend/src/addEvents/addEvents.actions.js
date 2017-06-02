@@ -1,6 +1,6 @@
 import $ from 'jquery';
 let cloudinary = window.cloudinary
-let BASEURL = "http://locahost:3333";
+const BASEURL = 'http://localhost:3333';
 if (window.location.hostname !== 'localhost') {
   BASEURL = '';
 }

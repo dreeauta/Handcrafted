@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   date: "",
   time: "",
   image: "",
-  link: ""
+  link: "",
+  event_added: false
 }
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -15,7 +16,9 @@ export default function reducer(state = INITIAL_STATE, action) {
     })
   }
   else if (action.type === "submitEvents"){
-
+    return Object.assign({}, state, {
+      event_added: true
+    })
   }
   else if (action.type === 'uploadImageSuccess'){
     return Object.assign({}, state, {

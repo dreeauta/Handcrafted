@@ -20,8 +20,8 @@ const db = pgp(config);
 // const db = pgp({
 //   database: 'art_db'
 // });
-
-const app = express();
+//
+// const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
