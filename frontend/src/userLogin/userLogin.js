@@ -42,7 +42,8 @@ render() {
     <input type="password" onChange={event => this.props.loginChange(event.target.value, 'password')}/>
   <br/>
   <br/>
-  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
+<Link to="/">  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
+</Link>
 <br/>
 <br/>
 { loginerror }

@@ -15,13 +15,12 @@ button:hover {
 
 .navbar {
   font-family: 'Poppins', sans-serif;
-  z-index: 0;
   font-size: 1.2em;
   word-spacing: 2vw;
   position: fixed;
   top: 3vh;
   left: 60vw;
-  background:rgba(255,255,255, 0.7);
+  background:rgba(255,255,255, 0.6);
   padding-left: 2vw;
   z-index: 2000;
 }
@@ -76,7 +75,7 @@ top: 10vh;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   color: black;
-  margin-top: 3vh;
+  margin-top: 2vh;
   margin-left: 2vw;
   filter: invert(100%);
   font-size: 1.2em;
@@ -109,8 +108,8 @@ top: 10vh;
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 5vw;
-  width: 5vh;
+  height: 5vh;
+  width: 5vw;
 }
 
 /* Color/shape of close button cross */
@@ -188,10 +187,17 @@ top: 10vh;
     white-space: nowrap;
     position: relative;
     top: 25vh;
-    height: 70vh;
+    height: 60vh;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
     margin-left: 10vw;
+    overflow: scroll;
+}
+
+
+
+.artcover-scrollmenu::-webkit-scrollbar {
+    display: none;
 }
 
 .artist-name {
@@ -505,7 +511,7 @@ input:focus {
   width: 10vw;
   left: 56vw;
   height: 8vh;
-  bottom: 25vh;
+  bottom: 23vh;
   font-family: 'Poppins', sans-serif;
   font-size: .6em;
   letter-spacing: .3em;
@@ -519,7 +525,7 @@ input:focus {
   width: 15vw;
   height: 10vh;
   left: 30vw;
-  top: 30vh;
+  bottom: 8vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.0em;
   letter-spacing: .3em;
@@ -644,16 +650,15 @@ input:focus {
 
 }
 
-.checkout-confirm  {
+.checkout-confirm button {
   position: relative;
   width: 15vw;
   height: 10vh;
+  bottom: 20vh;
   left: 40vw;
-  top: 5vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.0em;
   letter-spacing: .3em;
-  margin-bottom: 10vh;
 }
 
 
@@ -679,7 +684,7 @@ input:focus {
 .event-tree-gif {
   position: relative;
   left: 65vw;
-  bottom: 60vh;
+  bottom: 64vh;
   z-index: 0;
   width: 40vw;
 }
@@ -688,7 +693,7 @@ input:focus {
 
 .event-form input{
   position: relative;
-  top: 25vh;
+  top: 23vh;
   left: 10vw;
   width: 25vw;
   padding: 5px 10px;
@@ -701,15 +706,15 @@ input:focus {
 
 .event-form label{
   position: relative;
-  top: 25vh;
-  left: 10vw;
+  top: 23vh;
+  left: 10vw;``
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
 }
 
 .event-form2 input{
   position: relative;
-  bottom: 21vh;
+  bottom: 28vh;
   left: 40vw;
   width: 25vw;
   padding: 5px 10px;
@@ -722,7 +727,7 @@ input:focus {
 
 .event-form2 label{
   position: relative;
-  bottom: 20vh;
+  bottom: 28vh;
   left: 40vw;
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
@@ -735,7 +740,7 @@ input:focus {
   height: 5vh;
   font-family: 'Poppins', sans-serif;
   font-size: .9em;
-  bottom: 18vh;
+  bottom: 24vh;
   letter-spacing: .3em;
 }
 
@@ -747,8 +752,12 @@ input:focus {
   font-family: 'Poppins', sans-serif;
   font-size: 1.2em;
   letter-spacing: .2em;
-  top: 6vh;
+  bottom: 1vh;
 
+}
+
+.addevent-description  {
+  height: 20vh;
 }
 
 /*event section*/
@@ -886,4 +895,424 @@ overflow: hidden;
   font-size: 4em;
   padding-left: 10vw;
   padding-top: 4vh;
+}
+
+
+@media screen and (min-width: 1850px) and (max-width: 2150px) {
+
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 5vh;
+    width: 5vw;
+    position: absolute;
+    left: 14vw;
+  }
+
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    overflow-y: hidden;
+    height: auto;
+    position: fixed;
+    top: 0;
+    width: 17vw;
+
+  }
+
+  .category-nav a{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    top: 5vh;
+    color: black;
+    margin-left: 2vw;
+    filter: invert(100%);
+    font-size: 1.2em;
+  }
+
+  .category-nav img {
+    position: relative;
+    top: 1vh;
+  }
+
+  .category-nav a:hover {
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+
+
+  .navbar {
+    font-family: 'Poppins', sans-serif;
+    z-index: 0;
+    font-size: 1.2em;
+    word-spacing: 2vw;
+    position: fixed;
+    left: 65vw;
+    padding: 2vh;
+    padding-left: 4vw;
+    z-index: 2000;
+  }
+
+/*home page style */
+  .home-title{
+    position: absolute;
+    bottom: 5vh;
+    left: 49vw;
+    font-family: 'Poppins', sans-serif;
+    width: 40vw;
+    text-align: center;
+    background:rgba(255,255,255, 0.5);
+    padding: 5vw;
+    font-size: 1.2em;
+  }
+
+
+  /*login and signup page*/
+
+  .login-div {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .login-title {
+    position: relative;
+    left: 30vw;
+    top: 15vh;
+    font-size: 2.5em;
+    font-family: 'Barrio', cursive;
+  }
+
+  .login-tree-gif {
+    position: relative;
+    left: 50vw;
+    bottom: 30vh;
+    z-index: 0;
+    width: 50vw;
+
+  }
+
+
+
+  /*login form styling*/
+
+
+  .login-form input{
+    position: relative;
+    top: 20vh;
+    left: 23vw;
+    width: 20vw;
+    padding: 8px 16px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: 1.0em;
+      font-family: 'Poppins', sans-serif;
+  }
+
+  .login-form label{
+    position: relative;
+    top: 20vh;
+    left: 23vw;
+    font-size: 1.0em;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .login-form button {
+    position: relative;
+    left: 26vw;
+    width: 14vw;
+    height: 5vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.0em;
+    top: 20vh;
+    letter-spacing: .3em;
+  }
+
+  /*signup section*/
+  .signup-title {
+    position: relative;
+    left: 22vw;
+    top: 14vh;
+    font-size: 2.5em;
+    font-family: 'Barrio', cursive;
+  }
+
+  .signup-tree-gif {
+    position: relative;
+    left: 50vw;
+    bottom: 45vh;
+    z-index: 0;
+    width: 50vw;
+
+  }
+
+  .signup-form input{
+    position: relative;
+    top: 20vh;
+    left: 20vw;
+    width: 25vw;
+    height: 5vh;
+    padding: 4px 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: .9em;
+      font-family: 'Poppins', sans-serif;
+
+  }
+
+  .signup-form label{
+    position: relative;
+    top: 20vh;
+    left: 20vw;
+    font-size: .9em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .signup-form button {
+    position: relative;
+    left: 23vw;
+    width: 17vw;
+    height: 5vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.0em;
+    top: 25vh;
+    letter-spacing: .3em;
+  }
+
+  /**checkout page*/
+
+  .checkout-div {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .checkout-title {
+    position: relative;
+    left: 25vw;
+    top: 3vh;
+    font-size: 3.5em;
+    font-family: 'Barrio', cursive;
+    color: black;
+
+  }
+
+  .checkout-image {
+    width: 7vw;
+
+  }
+
+  .checkout-name{
+    position: relative;
+    bottom: 8vh;
+    left: 4vw;
+
+  }
+
+  .checkout-price{
+    position: relative;
+    bottom: 8vh;
+    left: 8vw;
+
+  }
+
+  .checkout-form {
+    background-color: black;
+    color: white;
+    position: relative;
+    top: 10vh;
+    height: 80vh;
+    width: 45vw;
+    left: 6vw;
+
+  }
+
+
+  .checkout-form input{
+    position: relative;
+    top: 7vh;
+    left: 12vw;
+    width: 30vw;
+    height: 6vh;
+    padding: 8px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 1.0em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+
+  .checkout-items {
+    width: 37vw;
+    height: auto;
+    position: relative;
+    left: 55vw;
+    bottom: 65vh;
+    padding: 3vh;
+  }
+
+  .checkout-total {
+    position: relative;
+    left: 83vw;
+    bottom: 70vh;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .checkout-total button{
+    top: 4vh;
+    right: 3vw;
+
+  }
+
+
+  /*add event section */
+  .addevent-title {
+    position: absolute;
+    left: 27vw;
+    top: 14vh;
+    width: 30vw;
+    font-size: 3.4em;
+    font-family: 'Barrio', cursive;
+  }
+
+  .addevent-div {
+      width:  100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+
+  }
+
+  .event-tree-gif {
+    position: relative;
+    left: 64vw;
+    bottom: 45vh;
+    z-index: 0;
+    width: 40vw;
+  }
+
+
+  .event-form input{
+    position: relative;
+    top: 25vh;
+    left: 10vw;
+    width: 25vw;
+    padding: 5px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .event-form label{
+    position: relative;
+    top: 25vh;
+    left: 10vw;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .event-form2 input{
+    position: relative;
+    bottom: 20vh;
+    left: 38vw;
+    width: 25vw;
+    padding: 5px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .event-form2 label{
+    position: relative;
+    bottom: 20vh;
+    left: 38vw;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .event-form2 button {
+    position: relative;
+    left: 43vw;
+    width: 15vw;
+    height: 5vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9em;
+    bottom: 18vh;
+    letter-spacing: .3em;
+  }
+
+  .addevent-submit button {
+    position: relative;
+    left: 11vw;
+    width: 18vw;
+    height: 8vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3em;
+    letter-spacing: .2em;
+    top: 5vh;
+
+  }
+
+  .addevent-description  {
+    height: 20vh;
+  }
+
+
+  /*about section*/
+
+  .about-div{
+  overflow: hidden;
+  }
+
+
+  .about-title{
+    position: fixed;
+    left: 62vw;
+    top: 39vh;
+    font-size: 3.5em;
+    font-family: 'Barrio', cursive;
+    background:rgba(255,255,255, 0.7);
+    padding: 2vw;
+    text-align: center;
+    color: black;
+  }
+
+
+  .about-background {
+    width:100vw;
+    height: 100vh;
+  }
+
+  .about-box {
+    position: absolute;
+    background:rgba(255,255,255, 0.7);
+    font-family: 'Poppins', sans-serif;
+    top: 27vh;
+    left: 10vw;
+    width: 40vw;
+    height: 50vh;
+    font-size: 1.3em;
+  }
+
+  .about-content {
+    position: absolute;
+    left: 5vw;
+    top: 7vh;
+    width: 30vw;
+  }
+
+  .about-div a{
+    color: black;
+    text-decoration: none;
+  }
+
 }

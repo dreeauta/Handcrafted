@@ -246,7 +246,8 @@ app.delete('/api/shopping_cart/', (req, res, next) => {
   let data = req.body;
   console.log(data.id);
 
-  db.result('delete from product_in_shopping_cart where id = $1', [data.id])
+  db.result('delete from product_in_shopping_cart where id = $1 and customer_id= $2', [data.id, req.loginSession.customer_id])
+  .then(data => db.any('select * from product_in_shopping_cart join product on (product_in_shopping_cart.product_id = product.id) where customer_id= $1', [req.loginSession.customer_id]))
   .then(data => res.json(data))
   .catch(next);
 })

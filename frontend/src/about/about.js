@@ -30,8 +30,7 @@ export default class about extends React.Component {
       <br/>
       <br/>
       -Andreea Uta
-      <br/>
-      <a href="https://github.com/dreeauta/art-app"> GitHub </a>
+  
 
       </p>
       </div>

@@ -29,13 +29,6 @@ if (this.props.events.event_added){
     <input type="text" onChange={event => this.props.onChangeEvents(event.target.value,'name')}/>
     <br/>
 
-    <label> Description: </label>
-    <br/>
-    <input type="text" onChange={event =>
-    this.props.onChangeEvents(event.target.value,'description')}/>
-
-    <br/>
-
     <label> Location: </label>
     <br/>
     <input type="text" onChange={event =>
@@ -43,17 +36,23 @@ if (this.props.events.event_added){
 
     <br/>
 
+        <label> Description: </label>
+        <br/>
+        <input className="addevent-description" type="text" onChange={event =>
+        this.props.onChangeEvents(event.target.value,'description')}/>
 
-    <label> Date: </label>
-    <br/>
-    <input type="date" onChange={event =>
-    this.props.onChangeEvents(event.target.value,'date')}/>
+
 
     </div>
 
     <br/>
     <div className="event-form2">
 
+    <label> Date: </label>
+    <br/>
+    <input type="date" onChange={event =>
+    this.props.onChangeEvents(event.target.value,'date')}/>
+<br/>
     <label> Time: </label>
     <br/>
     <input type="time" onChange={event =>

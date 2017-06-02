@@ -9,14 +9,14 @@ class checkoutCart extends React.Component {
   render() {
 
     let total=0;
-
-    if (this.props.cart_item) {
-      this.props.cart_items.map(input =>
+ 
+    if (this.props.cart.cart_items) {
+      this.props.cart.cart_items.map(input =>
       total += input.price)
     }
 
 
-    return (
+return (
 <div className="checkout-div">
 
 <span className="checkout-title">
@@ -86,12 +86,15 @@ class checkoutCart extends React.Component {
 
       <br/>
 
+      <span className="checkout-confirm">
+
       <Link to={"/confirmation"}>
-      <button className="checkout-confirm" onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
+      <button  onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
       this.props.checkout.email)}>
       Confirm Purchase
       </button>
       </Link>
+      </span>
 
 
       </div>
