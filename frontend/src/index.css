@@ -343,6 +343,17 @@ top: 10vh;
   letter-spacing: .3em;
 }
 
+.art-piece-itemadded {
+  position: relative;
+  top: 20vh;
+  font-size: 1.5em;
+}
+
+.art-piece-itemadded a{
+  text-decoration: none;
+  color: green;
+}
+
 /*login and signup page*/
 
 .login-div {

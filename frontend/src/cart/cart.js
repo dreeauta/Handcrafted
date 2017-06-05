@@ -24,17 +24,18 @@ class shoppingCart extends React.Component {
     let cartcheckout;
 
     if (this.props.items_in_cart === 0) {
-    cartcheckout =  <span className="cart-checkout">
-
-      <Link to="/checkout">  <button> Checkout </button></Link>
-
-      </span>
-
-    }
-    else {
       cartcheckout = <p className="cart-checkout">
       Shopping Cart is Empty!
       </p>
+
+
+    }
+    else {
+      cartcheckout =  <span className="cart-checkout">
+
+        <Link to="/checkout">  <button> Checkout </button></Link>
+
+        </span>
 
     }
 

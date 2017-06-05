@@ -9,11 +9,12 @@ class checkoutCart extends React.Component {
   render() {
 
     let total=0;
- 
+
     if (this.props.cart.cart_items) {
       this.props.cart.cart_items.map(input =>
       total += input.price)
     }
+
 
 
 return (

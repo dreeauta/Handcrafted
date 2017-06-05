@@ -29,11 +29,16 @@ console.log(this.props)
 
  let itemAdded;
 
- if (this.props.artworkItem.addedToCart) {
-   itemAdded = <p> Item added to cart!  </p>
- }
+ if ( this.props.login.token === "") {
+//    itemAdded = <p> Item added to cart!  </p>
+//  }
+// else (
+  itemAdded = <p> To add item to cart please
+  <Link to="/login"> login </Link>
+  </p>
+}
 
- let artistname;
+let artistname;
 
 
  if (this.props.artworkDescription.art_gallery &&
@@ -65,8 +70,10 @@ return (
   {this.props.artworkItem.artworkItem.description}
   <br/>
    <button onClick={(event) => { this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}}> Add to Cart </button>
+   <span className="art-piece-itemadded"> { itemAdded } </span>
 
    </div>
+
    </div>
  );
 }
