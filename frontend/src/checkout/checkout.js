@@ -6,6 +6,16 @@ import { Link } from 'react-router';
 
 class checkoutCart extends React.Component {
 
+  disable(){
+      let disable = true;
+      if (this.props.checkout.full_name.length > 0 && this.props.checkout.address.length > 0 &&
+        this.props.checkout.zip.length > 0 && this.props.checkout.city.length > 0) {
+          disable = false;
+      }
+      return disable;
+  }
+
+
   render() {
 
     let total=0;
@@ -14,6 +24,7 @@ class checkoutCart extends React.Component {
       this.props.cart.cart_items.map(input =>
       total += input.price)
     }
+
 
 
 
@@ -90,7 +101,10 @@ return (
       <span className="checkout-confirm">
 
       <Link to={"/confirmation"}>
-      <button  onClick={() => this.props.submitPurchaseInfo(this.props.login, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
+      <button type="button" disabled={this.disable()}
+
+      onClick={() => this.props.submitPurchaseInfo(this.props.login,
+      this.props.checkout.full_name, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
       this.props.checkout.email)}>
       Confirm Purchase
       </button>
