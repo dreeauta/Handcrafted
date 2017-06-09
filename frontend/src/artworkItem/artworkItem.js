@@ -1,6 +1,10 @@
 import * as ReactRedux from 'react-redux';import React from 'react';
 import * as actions from './artworkItem.actions';
 import { Link } from 'react-router';
+import AlertContainer from 'react-alert';
+
+
+
 
 class artworkItem extends React.Component {
 
@@ -15,11 +19,28 @@ class artworkItem extends React.Component {
   }
 }
 
+alertOptions = {
+  offset: 14,
+  position: 'bottom right',
+  theme: 'light',
+  time: 4250,
+  transition: 'scale'
+}
+
+
+
+showAlert = () => {
+  this.msg.show('Item added to cart', {
+    time: 2000,
+    type: 'success',
+    icon: <img src="./addevent/event-icon.png" />
+  })
+}
 
 render() {
  let displayItem;
 
-console.log(this.props)
+
  if (this.props.artworkItem.artworkItem  ){
    displayItem = this.props.artworkItem.artworkItem.name
  }
@@ -69,8 +90,15 @@ return (
   <br/>
   {this.props.artworkItem.artworkItem.description}
   <br/>
-   <button onClick={(event) => { this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}}> Add to Cart </button>
-   <span className="art-piece-itemadded"> { itemAdded } </span>
+
+  <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+
+
+  <button onClick={(event) => { this.props.addToCart(this.props.artworkItem.artworkItem.id, this.props.login.token)}, this.showAlert}> Add to Cart </button>
+   <span className="art-piece-itemadded"> { itemAdded }
+
+
+    </span>
 
    </div>
 

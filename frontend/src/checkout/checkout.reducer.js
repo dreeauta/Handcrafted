@@ -17,7 +17,13 @@ export default function reducer( state = INITIAL_STATE, action) {
   }
     else if (action.type === 'submitPurchase'){
       return Object.assign({}, state, {
-        checkout_complete: true
+        checkout_complete: true,
+        full_name: "",
+        address: "",
+        address2: "",
+        city: "",
+        zip: "",
+        total: ""
       })
     }
   return state;

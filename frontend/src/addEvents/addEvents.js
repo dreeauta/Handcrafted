@@ -2,10 +2,28 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import * as actions from './addEvents.actions';
 import { Link } from 'react-router';
+import AlertContainer from 'react-alert';
 
 
 class addEvents extends React.Component {
 
+  alertOptions = {
+    offset: 14,
+    position: 'bottom right',
+    theme: 'light',
+    time: 4250,
+    transition: 'scale'
+  }
+
+
+
+  showAlert = () => {
+    this.msg.show('Event Added!', {
+      time: 2000,
+      type: 'success',
+      icon: <img src="./addevent/event-icon.png" />
+    })
+  }
 
 render() {
 
@@ -71,15 +89,16 @@ if (this.props.events.event_added){
 
     <button  onClick={event =>this.props.uploadEventImage(event.target.value,'image')}> Upload Image </button>
 
+    <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
 
     <span className="addevent-submit">
-    <button onClick={() =>
+    <button onClick={(event) => {
     this.props.submitEvents(
       this.props.eventsadd.name,
       this.props.eventsadd.description,
       this.props.eventsadd.location,
       this.props.eventsadd.date, this.props.eventsadd.time,
-      this.props.eventsadd.image, this.props.eventsadd.link)}> Add Event </button>
+      this.props.eventsadd.image, this.props.eventsadd.link)}, this.showAlert}> Add Event </button>
     </span>
     <br/> {event_added}
     </div>
