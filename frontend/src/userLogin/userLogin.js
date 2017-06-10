@@ -16,6 +16,16 @@ class userLogin extends React.Component {
   //   }
   // }
 
+  disableLogin(){
+      let disableLogin = true;
+      if (this.props.login.username.length > 0 && this.props.login.password.length > 0)
+      {
+          disableLogin = false;
+      }
+      return disableLogin;
+  }
+
+
 render() {
   // console.log(this.props);
   let loginerror;
@@ -42,7 +52,7 @@ render() {
     <input type="password" onChange={event => this.props.loginChange(event.target.value, 'password')}/>
   <br/>
   <br/>
-<Link to="/">  <button onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
+<Link to="/">  <button type="button" disabled={this.disableLogin()} onClick={() => this.props.submitLogin(this.props.login.username, this.props.login.password)}> Submit </button>
 </Link>
 <br/>
 <br/>

@@ -11,6 +11,16 @@ import { Link } from 'react-router';
 class userSignup extends React.Component {
 
 
+  disableSignup(){
+      let disableSignup = true;
+      if (this.props.signup.username.length > 0 && this.props.signup.firstname.length > 0 &&
+        this.props.signup.lastname.length > 0 && this.props.signup.email.length > 0 &&
+      this.props.signup.password > 0) {
+          disableSignup = false;
+      }
+      return disableSignup;
+  }
+
   render(){
 
     return (
@@ -45,7 +55,7 @@ class userSignup extends React.Component {
       <br/>
 
       <Link to={"/login"}>
-      <button className="signup-btn" onClick={() => this.props.submit(this.props.signup.username, this.props.signup.firstname, this.props.signup.lastname, this.props.signup.email, this.props.signup.password)}> SignUp </button> </Link>
+      <button className="signup-btn" type="button" disabled={this.disableSignUp()} onClick={() => this.props.submit(this.props.signup.username, this.props.signup.firstname, this.props.signup.lastname, this.props.signup.email, this.props.signup.password)}> SignUp </button> </Link>
 
       </div>
 
