@@ -24,14 +24,15 @@ export function onChangePurchase(data, propName){
 // };
 
 
-export function submitPurchaseInfo(customer_id, total_price, address, address2, city, zip,email){
+export function submitPurchaseInfo(token, amount, address, address2, city, zip,email){
   let asyncAction = function(dispatch) {
     $.ajax({
       method: 'POST',
       url: BASEURL +'/api/checkout',
       data: JSON.stringify({
-        customer_id: customer_id,
-        total_price: total_price,
+        token: token,
+        amount: amount,
+        address: address,
         address2: address2,
         city: city,
         zip: zip,
@@ -39,7 +40,9 @@ export function submitPurchaseInfo(customer_id, total_price, address, address2, 
       }),
       contentType: 'application/json'
     })
-    .then(data => dispatch({ type: 'submitPurchaseInfo', payload: data}))
+    .then(data => dispatch({
+      type: 'submitPurchaseInfo',
+       payload: data}))
   }
   return asyncAction
 }

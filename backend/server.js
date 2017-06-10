@@ -268,7 +268,8 @@ app.get('/api/shopping_cart', (req, res, next) => {
 
 app.post('/api/checkout', (req, res, next) => {
   let data = req.body;
-  db.one(`insert into purchase values (default, $1, $2, $3, $4, $5, $6, $7) returning customer_id, total_price, address, address2, city, zipcode, email`, [req.user.customer_id, data.total_price, data.address, data.address2, data.city, data.zipcode, data.email])
+
+  db.one(`insert into purchase values (default, $1, $2, $3, $4, $5, $6, $7) returning *`, [req.loginSession.customer_id, data.amount, data.address, data.address2, data.city, data.zipcode, data.email])
   .then(results => {
       return db.none(`delete from shopping_cart where customer_id = $1`, results.customer_id)
   })

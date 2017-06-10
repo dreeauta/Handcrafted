@@ -102,7 +102,7 @@ return (
 
       <Link to={"/confirmation"}>
       <button type="button" disabled={this.disable()}
-      onClick={() => this.props.submitPurchaseInfo(this.props.login,
+      onClick={() => this.props.submitPurchaseInfo(this.props.login.token,
       this.props.checkout.full_name, this.props.checkout.total, this.props.checkout.address, this.props.checkout.address2, this.props.checkout.city, this.props.checkout.zip,
       this.props.checkout.email)}>
       Confirm Purchase
