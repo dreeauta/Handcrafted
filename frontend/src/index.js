@@ -91,11 +91,10 @@ class AppLayout extends React.Component {
 
       <IndexLink to="/" activeClassName="active">
       Home </IndexLink>
-      <a href="#" onClick={this.props.signOut}>
-      SignOut </a>
-
       <Link to="/Cart" activeClassName="active">
       Cart </Link>
+      <a href="#" onClick={this.props.signOut}>
+      SignOut </a>
       </div>
 
 
@@ -108,8 +107,7 @@ class AppLayout extends React.Component {
       Login </Link>
       <Link to="/SignUp" activeClassName="active">
       SignUp </Link>
-      <Link to="/Cart" activeClassName="active">
-      Cart </Link>
+
 
       </div>
   )
