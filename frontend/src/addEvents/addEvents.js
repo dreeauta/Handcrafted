@@ -56,7 +56,7 @@ if (this.props.events.event_added){
 
         <label> Description: </label>
         <br/>
-        <input className="addevent-description" type="text" onChange={event =>
+        <textarea className="addevent-description" type="text" onChange={event =>
         this.props.onChangeEvents(event.target.value,'description')}/>
 
 

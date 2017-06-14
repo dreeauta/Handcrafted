@@ -715,17 +715,17 @@ input:focus {
 
 }
 
-.event-form label{
+.event-form label, textarea{
   position: relative;
   top: 23vh;
-  left: 10vw;``
+  left: 10vw;
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
 }
 
 .event-form2 input{
   position: relative;
-  bottom: 28vh;
+  bottom: 29vh;
   left: 40vw;
   width: 25vw;
   padding: 5px 10px;
@@ -738,7 +738,7 @@ input:focus {
 
 .event-form2 label{
   position: relative;
-  bottom: 28vh;
+  bottom: 29vh;
   left: 40vw;
   font-size: 1.0em;
   font-family: 'Poppins', sans-serif;
@@ -769,6 +769,11 @@ input:focus {
 
 .addevent-description  {
   height: 20vh;
+  width: 25vw;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  line-height: 1em;
+
 }
 
 /*event section*/
